@@ -1,0 +1,8 @@
+TestResult.xml
+net-sdk.userprefs
+SDK/bin
+SDK/obj
+SDKTest/bin
+SDKTest/obj
+SDKTest/test-results
+
