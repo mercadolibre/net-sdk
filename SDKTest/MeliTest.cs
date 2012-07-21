@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Net;
 using System.IO;
 using System.Collections.Specialized;
+using RestSharp;
 
 namespace com.mercadolibre.sdk.test
 {
@@ -46,10 +47,10 @@ namespace com.mercadolibre.sdk.test
 
 			Meli m = new Meli (123456, "client secret", "valid token");
 
-			HttpWebResponse response = m.get ("/sites");
+			var response = m.get ("/sites");
 
-			Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-			Assert.IsNotNullOrEmpty(new StreamReader(response.GetResponseStream()).ReadToEnd());
+			Assert.AreEqual (HttpStatusCode.OK, response.StatusCode);
+			Assert.IsNotNullOrEmpty (response.Content);
 		}
 
 		[Test]
@@ -59,12 +60,16 @@ namespace com.mercadolibre.sdk.test
 
 			Meli m = new Meli (123456, "client secret", "expired token", "valid refresh token");
 
-			NameValueCollection param = new NameValueCollection();
-			param.Add("access_token", m.AccessToken);
-			HttpWebResponse response = m.get ("/users/me", param);
+			NameValueCollection param = new NameValueCollection ();
+			param.Add ("access_token", m.AccessToken);
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
 
-			Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-			Assert.IsNotNullOrEmpty(new StreamReader(response.GetResponseStream()).ReadToEnd());
+			var response = m.get ("/users/me", p);
+
+			Assert.AreEqual (HttpStatusCode.OK, response.StatusCode);
+			Assert.IsNotNullOrEmpty (response.Content);
 		}
 
 	}

@@ -5,4 +5,6 @@ SDK/obj
 SDKTest/bin
 SDKTest/obj
 SDKTest/test-results
-
+mockapi/node_modules
+.DS_Store
+SDK/.DS_Store

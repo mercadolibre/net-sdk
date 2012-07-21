@@ -6,11 +6,14 @@ using System.Runtime.Serialization.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Specialized;
+using RestSharp;
+using System.Collections.Generic;
 
 namespace com.mercadolibre.sdk
 {
 	public class Meli
 	{
+		private RestClient client = new RestClient (ApiUrl);
 		static private string apiUrl = "https://api.mercadolibre.com";
 
 		static public string ApiUrl {
@@ -53,56 +56,100 @@ namespace com.mercadolibre.sdk
 
 		public string getAuthUrl (string redirectUri)
 		{
+
 			return "https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=" + ClientId + "&redirect_uri=" + HttpUtility.UrlEncode (redirectUri);
 		}
 
 		public void authorize (string code, string redirectUri)
 		{
-			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (ApiUrl + "/oauth/token?grant_type=authorization_code&client_id=" + this.ClientId + "&client_secret=" + this.ClientSecret + "&code=" + code + "&redirect_uri=" + redirectUri);
-			request.Accept = "application/json";
-			request.Method = "POST";
+			var request = new RestRequest ("/oauth/token?grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}", Method.POST);
 
-			try {
-				HttpWebResponse response = (HttpWebResponse)request.GetResponse ();
-				if (response.StatusCode.Equals (HttpStatusCode.OK)) {
-					using (var rs = response.GetResponseStream()) {
-						using (var sr = new StreamReader(rs)) {
-							var token = JsonConvert.DeserializeAnonymousType (sr.ReadToEnd (), new {refresh_token="", access_token = ""});
-							this.AccessToken = token.access_token;
-							this.RefreshToken = token.refresh_token;
-						}
-					}
-				} else {
-					throw new AuthorizationException ();
+			request.AddParameter ("client_id", this.ClientId, ParameterType.UrlSegment);
+			request.AddParameter ("client_secret", this.ClientSecret, ParameterType.UrlSegment);
+			request.AddParameter ("code", code, ParameterType.UrlSegment);
+			request.AddParameter ("redirect_uri", redirectUri, ParameterType.UrlSegment);
+
+			request.AddHeader ("Accept", "application/json");
+
+			var response = client.Execute (request);
+
+			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
+				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
+				this.AccessToken = token.access_token;
+				this.RefreshToken = token.refresh_token;
+			} else {
+				throw new AuthorizationException ();
+			}
+		}
+
+		public IRestResponse get (string resource)
+		{
+			return get (resource, new Parameter[0]);
+		}
+
+		void refreshToken ()
+		{
+			var request = new RestRequest ("/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}", Method.POST);
+			request.AddParameter ("client_id", this.ClientId, ParameterType.UrlSegment);
+			request.AddParameter ("client_secret", this.ClientSecret, ParameterType.UrlSegment);
+			request.AddParameter ("refresh_token", this.RefreshToken, ParameterType.UrlSegment);
+
+			request.AddHeader ("Accept", "application/json");
+
+			var response = client.Execute (request);
+
+			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
+				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
+				this.AccessToken = token.access_token;
+				this.RefreshToken = token.refresh_token;
+			} else {
+				throw new AuthorizationException ();
+			}
+		}
+
+		public IRestResponse get (string resource, params Parameter[] param)
+		{
+			bool containsAT = false;
+
+			var request = new RestRequest (resource, Method.GET);
+			List<string> names = new List<string> ();
+			foreach (Parameter p in param) {
+				names.Add (p.Name + "={" + p.Name + "}");
+				if (p.Name.Equals ("access_token")) {
+					containsAT = true;
 				}
-			} catch (WebException ex) {
-				throw new AuthorizationException ("Couldn't authorize.", ex);
+				p.Type = ParameterType.UrlSegment;
+				request.AddParameter (p);
 			}
-		}
 
-		public HttpWebResponse get (string resource)
-		{
-			return get (resource, new NameValueCollection ());
-		}
+			request.Resource = resource + "?" + string.Join ("&", names);
 
-		public HttpWebResponse get (string resource, StringDictionary parameters)
-		{
-			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (ApiUrl + resource + "?" + ToQueryString (parameters));
-			request.Accept = "application/json";
-			request.Method = "GET";
+			request.AddHeader ("Accept", "application/json");
 
-			try {
-				HttpWebResponse response = (HttpWebResponse)request.GetResponse ();
-				return response;
-			} catch (WebException ex) {
-				if(parameters.get ex.Status==
+			var response = client.Execute (request);
+
+			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+				refreshToken ();
+
+				request = new RestRequest (resource, Method.GET);
+				names = new List<string> ();
+				foreach (Parameter p in param) {
+					if (p.Name.Equals ("access_token")) {
+						p.Value = this.AccessToken;
+					}
+					names.Add (p.Name + "={" + p.Name + "}");
+					p.Type = ParameterType.UrlSegment;
+					request.AddParameter (p);
+				}
+
+				request.Resource = resource + "?" + string.Join ("&", names);
+
+				request.AddHeader ("Accept", "application/json");
+
+				response = client.Execute (request);
 			}
+
 			return response;
-		}
-
-		private string ToQueryString (StringDictionary nvc)
-		{
-			return "?" + string.Join ("&", Array.ConvertAll (nvc.AllKeys, key => string.Format ("{0}={1}", HttpUtility.UrlEncode (key), HttpUtility.UrlEncode (nvc [key]))));
 		}
 	}
 }
