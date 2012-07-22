@@ -83,7 +83,7 @@ namespace com.mercadolibre.sdk
 
 		public IRestResponse get (string resource)
 		{
-			return get (resource, new Parameter[0]);
+			return get (resource, new List<Parameter> ());
 		}
 
 		void refreshToken ()
@@ -106,7 +106,7 @@ namespace com.mercadolibre.sdk
 			}
 		}
 
-		public IRestResponse get (string resource, params Parameter[] param)
+		public IRestResponse get (string resource, List<Parameter> param)
 		{
 			bool containsAT = false;
 
@@ -121,7 +121,7 @@ namespace com.mercadolibre.sdk
 				request.AddParameter (p);
 			}
 
-			request.Resource = resource + "?" + String.Join ("&", names.ToArray());
+			request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
 
 			request.AddHeader ("Accept", "application/json");
 
@@ -141,7 +141,156 @@ namespace com.mercadolibre.sdk
 					request.AddParameter (p);
 				}
 
-				request.Resource = resource + "?" + String.Join ("&", names.ToArray());
+				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
+
+				request.AddHeader ("Accept", "application/json");
+
+				response = client.Execute (request);
+			}
+
+			return response;
+		}
+
+		public IRestResponse post (string resource, List<Parameter> param, object body)
+		{
+			bool containsAT = false;
+
+			var request = new RestRequest (resource, Method.POST);
+			List<string> names = new List<string> ();
+			foreach (Parameter p in param) {
+				names.Add (p.Name + "={" + p.Name + "}");
+				if (p.Name.Equals ("access_token")) {
+					containsAT = true;
+				}
+				p.Type = ParameterType.UrlSegment;
+				request.AddParameter (p);
+			}
+
+			request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
+
+			request.AddHeader ("Accept", "application/json");
+			request.AddHeader ("Content-Type", "application/json");
+			request.RequestFormat = DataFormat.Json;
+
+			request.AddBody (body);
+
+			var response = client.Execute (request);
+
+			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+				refreshToken ();
+
+				request = new RestRequest (resource, Method.POST);
+				names = new List<string> ();
+				foreach (Parameter p in param) {
+					if (p.Name.Equals ("access_token")) {
+						p.Value = this.AccessToken;
+					}
+					names.Add (p.Name + "={" + p.Name + "}");
+					p.Type = ParameterType.UrlSegment;
+					request.AddParameter (p);
+				}
+
+				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
+
+				request.AddHeader ("Accept", "application/json");
+				request.AddHeader ("Content-Type", "application/json");
+				request.RequestFormat = DataFormat.Json;
+
+				request.AddBody (body);
+				response = client.Execute (request);
+			}
+
+			return response;
+		}
+
+		public IRestResponse put (string resource, List<Parameter> param, object body)
+		{
+			bool containsAT = false;
+
+			var request = new RestRequest (resource, Method.PUT);
+			List<string> names = new List<string> ();
+			foreach (Parameter p in param) {
+				names.Add (p.Name + "={" + p.Name + "}");
+				if (p.Name.Equals ("access_token")) {
+					containsAT = true;
+				}
+				p.Type = ParameterType.UrlSegment;
+				request.AddParameter (p);
+			}
+
+			request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
+
+			request.AddHeader ("Accept", "application/json");
+			request.AddHeader ("Content-Type", "application/json");
+			request.RequestFormat = DataFormat.Json;
+
+			request.AddBody (body);
+
+			var response = client.Execute (request);
+
+			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+				refreshToken ();
+
+				request = new RestRequest (resource, Method.PUT);
+				names = new List<string> ();
+				foreach (Parameter p in param) {
+					if (p.Name.Equals ("access_token")) {
+						p.Value = this.AccessToken;
+					}
+					names.Add (p.Name + "={" + p.Name + "}");
+					p.Type = ParameterType.UrlSegment;
+					request.AddParameter (p);
+				}
+
+				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
+
+				request.AddHeader ("Accept", "application/json");
+				request.AddHeader ("Content-Type", "application/json");
+				request.RequestFormat = DataFormat.Json;
+
+				request.AddBody (body);
+				response = client.Execute (request);
+			}
+
+			return response;
+		}
+
+		public IRestResponse delete (string resource, List<Parameter> param)
+		{
+			bool containsAT = false;
+
+			var request = new RestRequest (resource, Method.DELETE);
+			List<string> names = new List<string> ();
+			foreach (Parameter p in param) {
+				names.Add (p.Name + "={" + p.Name + "}");
+				if (p.Name.Equals ("access_token")) {
+					containsAT = true;
+				}
+				p.Type = ParameterType.UrlSegment;
+				request.AddParameter (p);
+			}
+
+			request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
+
+			request.AddHeader ("Accept", "application/json");
+
+			var response = client.Execute (request);
+
+			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+				refreshToken ();
+
+				request = new RestRequest (resource, Method.DELETE);
+				names = new List<string> ();
+				foreach (Parameter p in param) {
+					if (p.Name.Equals ("access_token")) {
+						p.Value = this.AccessToken;
+					}
+					names.Add (p.Name + "={" + p.Name + "}");
+					p.Type = ParameterType.UrlSegment;
+					request.AddParameter (p);
+				}
+
+				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
 
 				request.AddHeader ("Accept", "application/json");
 

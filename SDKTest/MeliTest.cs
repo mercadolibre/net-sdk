@@ -4,6 +4,7 @@ using System.Net;
 using System.IO;
 using System.Collections.Specialized;
 using RestSharp;
+using System.Collections.Generic;
 
 namespace com.mercadolibre.sdk.test
 {
@@ -60,17 +61,133 @@ namespace com.mercadolibre.sdk.test
 
 			Meli m = new Meli (123456, "client secret", "expired token", "valid refresh token");
 
-			NameValueCollection param = new NameValueCollection ();
-			param.Add ("access_token", m.AccessToken);
 			var p = new Parameter ();
 			p.Name = "access_token";
 			p.Value = m.AccessToken;
 
-			var response = m.get ("/users/me", p);
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var response = m.get ("/users/me", ps);
 
 			Assert.AreEqual (HttpStatusCode.OK, response.StatusCode);
 			Assert.IsNotNullOrEmpty (response.Content);
 		}
 
+		[Test]
+		public void handleErrors ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "invalid token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var response = m.get ("/users/me", ps);
+			Assert.AreEqual (HttpStatusCode.Forbidden, response.StatusCode);
+		}
+
+		[Test]
+		public void post ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "valid token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var r = m.post ("/items", ps, new {foo="bar"});
+
+			Assert.AreEqual (HttpStatusCode.Created, r.StatusCode);
+		}
+
+		[Test]
+		public void postWithRefreshToken ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "expired token", "valid refresh token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var r = m.post ("/items", ps, new {foo="bar"});
+
+			Assert.AreEqual (HttpStatusCode.Created, r.StatusCode);
+		}
+
+		[Test]
+		public void put ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "valid token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var r = m.put ("/items/123", ps, new {foo="bar"});
+
+			Assert.AreEqual (HttpStatusCode.OK, r.StatusCode);
+		}
+
+		[Test]
+		public void putWithRefreshToken ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "expired token", "valid refresh token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var r = m.put ("/items/123", ps, new {foo="bar"});
+
+			Assert.AreEqual (HttpStatusCode.OK, r.StatusCode);
+		}
+
+		[Test]
+		public void delete ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "valid token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var r = m.delete ("/items/123", ps);
+
+			Assert.AreEqual (HttpStatusCode.OK, r.StatusCode);
+		}
+
+		[Test]
+		public void deleteWithRefreshToken ()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "expired token", "valid refresh token");
+
+			var p = new Parameter ();
+			p.Name = "access_token";
+			p.Value = m.AccessToken;
+
+			var ps = new List<Parameter> ();
+			ps.Add (p);
+			var r = m.delete ("/items/123", ps);
+
+			Assert.AreEqual (HttpStatusCode.OK, r.StatusCode);
+		}
 	}
 }
