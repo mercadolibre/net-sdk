@@ -2,7 +2,6 @@ using System;
 using System.Web;
 using System.Net;
 using System.IO;
-using System.Runtime.Serialization.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Specialized;
@@ -122,7 +121,7 @@ namespace com.mercadolibre.sdk
 				request.AddParameter (p);
 			}
 
-			request.Resource = resource + "?" + string.Join ("&", names);
+			request.Resource = resource + "?" + String.Join ("&", names.ToArray());
 
 			request.AddHeader ("Accept", "application/json");
 
@@ -142,7 +141,7 @@ namespace com.mercadolibre.sdk
 					request.AddParameter (p);
 				}
 
-				request.Resource = resource + "?" + string.Join ("&", names);
+				request.Resource = resource + "?" + String.Join ("&", names.ToArray());
 
 				request.AddHeader ("Accept", "application/json");
 

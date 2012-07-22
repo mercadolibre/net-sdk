@@ -9,6 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>com.mercadolibre.sdk</RootNamespace>
     <AssemblyName>net-sdk</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,11 +34,11 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\Lib\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
