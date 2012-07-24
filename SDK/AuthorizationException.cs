@@ -1,6 +1,6 @@
 using System;
 
-namespace com.mercadolibre.sdk
+namespace MercadoLibre.SDK
 {
 	public class AuthorizationException : Exception
 	{

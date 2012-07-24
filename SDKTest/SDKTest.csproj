@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FDC8E728-B153-432C-B9CA-309EA38D9AA4}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>com.mercadolibre.sdk.test</RootNamespace>
+    <RootNamespace>MercadoLibre.SDK.Test</RootNamespace>
     <AssemblyName>SDKTest</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>

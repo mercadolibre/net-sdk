@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 using RestSharp;
 using System.Collections.Generic;
 
-namespace com.mercadolibre.sdk
+namespace MercadoLibre.SDK
 {
 	public class Meli
 	{
@@ -53,13 +53,13 @@ namespace com.mercadolibre.sdk
 			this.RefreshToken = refreshToken;
 		}
 
-		public string getAuthUrl (string redirectUri)
+		public string GetAuthUrl (string redirectUri)
 		{
 
 			return "https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=" + ClientId + "&redirect_uri=" + HttpUtility.UrlEncode (redirectUri);
 		}
 
-		public void authorize (string code, string redirectUri)
+		public void Authorize (string code, string redirectUri)
 		{
 			var request = new RestRequest ("/oauth/token?grant_type=authorization_code&client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}", Method.POST);
 
@@ -81,9 +81,9 @@ namespace com.mercadolibre.sdk
 			}
 		}
 
-		public IRestResponse get (string resource)
+		public IRestResponse Get (string resource)
 		{
-			return get (resource, new List<Parameter> ());
+			return Get (resource, new List<Parameter> ());
 		}
 
 		void refreshToken ()
@@ -106,7 +106,7 @@ namespace com.mercadolibre.sdk
 			}
 		}
 
-		public IRestResponse get (string resource, List<Parameter> param)
+		public IRestResponse Get (string resource, List<Parameter> param)
 		{
 			bool containsAT = false;
 
@@ -151,7 +151,7 @@ namespace com.mercadolibre.sdk
 			return response;
 		}
 
-		public IRestResponse post (string resource, List<Parameter> param, object body)
+		public IRestResponse Post (string resource, List<Parameter> param, object body)
 		{
 			bool containsAT = false;
 
@@ -203,7 +203,7 @@ namespace com.mercadolibre.sdk
 			return response;
 		}
 
-		public IRestResponse put (string resource, List<Parameter> param, object body)
+		public IRestResponse Put (string resource, List<Parameter> param, object body)
 		{
 			bool containsAT = false;
 
@@ -255,7 +255,7 @@ namespace com.mercadolibre.sdk
 			return response;
 		}
 
-		public IRestResponse delete (string resource, List<Parameter> param)
+		public IRestResponse Delete (string resource, List<Parameter> param)
 		{
 			bool containsAT = false;
 
