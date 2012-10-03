@@ -97,6 +97,14 @@ app.delete('/items/123', function(req, res) {
     }
 });
 
+app.get('/echo/user_agent',function(req,res) {
+    if (req.headers['user-agent'].match(/MELI-NET-SDK-.*/))
+        res.send(200);
+    else 
+        res.send({"message":"The user agent didn't match the expected string " + req.headers['user-agent'],"error":"user-agent-mismatch","status":400,"cause":[]}, 400);
+        
+});
+
 app.listen(3000);
 
 fs.writeFileSync('/tmp/mockapi.pid', process.pid);

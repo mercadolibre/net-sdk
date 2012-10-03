@@ -189,5 +189,15 @@ namespace MercadoLibre.SDK.Test
 
 			Assert.AreEqual (HttpStatusCode.OK, r.StatusCode);
 		}
+
+		[Test]
+    	public void TestUserAgent() 
+    	{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli (123456, "client secret", "expired token", "valid refresh token");
+
+			var response = m.Get ("/echo/user_agent");
+			Assert.AreEqual (HttpStatusCode.OK, response.StatusCode);
+	    }
 	}
 }
