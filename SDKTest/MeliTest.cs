@@ -15,7 +15,6 @@ namespace MercadoLibre.SDK.Test
 		public void GetAuthUrl ()
 		{
 			Meli m = new Meli (123456, "client secret");
-
 			Assert.AreEqual ("https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=123456&redirect_uri=http%3a%2f%2fsomeurl.com", m.GetAuthUrl ("http://someurl.com"));
 		}
 
