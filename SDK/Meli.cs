@@ -14,7 +14,7 @@ namespace MercadoLibre.SDK
 	{
 		private RestClient client = new RestClient (ApiUrl);
 		static private string apiUrl = "https://api.mercadolibre.com";
-
+		static private string sdkVersion = "MELI-NET-SDK-0.0.1";
 		static public string ApiUrl {
 			get {
 				return apiUrl;
@@ -70,7 +70,7 @@ namespace MercadoLibre.SDK
 
 			request.AddHeader ("Accept", "application/json");
 
-			var response = client.Execute (request);
+			var response = ExecuteRequest (request);
 
 			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
 				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
@@ -95,7 +95,7 @@ namespace MercadoLibre.SDK
 
 			request.AddHeader ("Accept", "application/json");
 
-			var response = client.Execute (request);
+			var response = ExecuteRequest (request);
 
 			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
 				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
@@ -125,7 +125,7 @@ namespace MercadoLibre.SDK
 
 			request.AddHeader ("Accept", "application/json");
 
-			var response = client.Execute (request);
+			var response = ExecuteRequest (request);
 
 			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
 				refreshToken ();
@@ -145,7 +145,7 @@ namespace MercadoLibre.SDK
 
 				request.AddHeader ("Accept", "application/json");
 
-				response = client.Execute (request);
+				response = ExecuteRequest (request);
 			}
 
 			return response;
@@ -174,7 +174,7 @@ namespace MercadoLibre.SDK
 
 			request.AddBody (body);
 
-			var response = client.Execute (request);
+			var response = ExecuteRequest (request);
 
 			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
 				refreshToken ();
@@ -197,7 +197,7 @@ namespace MercadoLibre.SDK
 				request.RequestFormat = DataFormat.Json;
 
 				request.AddBody (body);
-				response = client.Execute (request);
+				response = ExecuteRequest (request);
 			}
 
 			return response;
@@ -226,7 +226,7 @@ namespace MercadoLibre.SDK
 
 			request.AddBody (body);
 
-			var response = client.Execute (request);
+			var response = ExecuteRequest (request);
 
 			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
 				refreshToken ();
@@ -249,7 +249,7 @@ namespace MercadoLibre.SDK
 				request.RequestFormat = DataFormat.Json;
 
 				request.AddBody (body);
-				response = client.Execute (request);
+				response = ExecuteRequest (request);
 			}
 
 			return response;
@@ -274,7 +274,7 @@ namespace MercadoLibre.SDK
 
 			request.AddHeader ("Accept", "application/json");
 
-			var response = client.Execute (request);
+			var response = ExecuteRequest (request);
 
 			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
 				refreshToken ();
@@ -294,10 +294,15 @@ namespace MercadoLibre.SDK
 
 				request.AddHeader ("Accept", "application/json");
 
-				response = client.Execute (request);
+				response = ExecuteRequest (request);
 			}
 
 			return response;
+		}
+
+		public IRestResponse ExecuteRequest(RestRequest request) {
+			client.UserAgent = sdkVersion;
+			return client.Execute(request);
 		}
 	}
 }
