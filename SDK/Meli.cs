@@ -26,26 +26,26 @@ namespace MercadoLibre.SDK
 
 		public string ClientSecret { get; private set; }
 
-		public int ClientId { get; private set; }
+		public long ClientId { get; private set; }
 
 		public string AccessToken { get; private set; }
 
 		public string RefreshToken { get; private set; }
 
-		public Meli (int clientId, string clientSecret)
+		public Meli (long clientId, string clientSecret)
 		{
 			this.ClientId = clientId;
 			this.ClientSecret = clientSecret;
 		}
 
-		public Meli (int clientId, string clientSecret, string accessToken)
+		public Meli (long clientId, string clientSecret, string accessToken)
 		{
 			this.ClientId = clientId;
 			this.ClientSecret = clientSecret;
 			this.AccessToken = accessToken;
 		}
 
-		public Meli (int clientId, string clientSecret, string accessToken, string refreshToken)
+		public Meli (long clientId, string clientSecret, string accessToken, string refreshToken)
 		{
 			this.ClientId = clientId;
 			this.ClientSecret = clientSecret;
