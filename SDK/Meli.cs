@@ -12,7 +12,8 @@ namespace MercadoLibre.SDK
 {
 	public class Meli
 	{
-		private RestClient client = new RestClient (ApiUrl);
+
+        private RestClient client = new RestClient (ApiUrl);
 		static private string apiUrl = "https://api.mercadolibre.com";
 		static private string sdkVersion = "MELI-NET-SDK-0.0.1";
 		static public string ApiUrl {
@@ -127,7 +128,7 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+			if (!string.IsNullOrEmpty (this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT) {
 				refreshToken ();
 
 				request = new RestRequest (resource, Method.GET);
@@ -176,7 +177,7 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+            if (!string.IsNullOrEmpty(this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT){
 				refreshToken ();
 
 				request = new RestRequest (resource, Method.POST);
@@ -228,7 +229,7 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+            if (!string.IsNullOrEmpty(this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT){
 				refreshToken ();
 
 				request = new RestRequest (resource, Method.PUT);
@@ -276,7 +277,7 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-			if (!string.IsNullOrEmpty (this.RefreshToken) && response.StatusCode == HttpStatusCode.NotFound && containsAT) {
+            if (!string.IsNullOrEmpty(this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT){
 				refreshToken ();
 
 				request = new RestRequest (resource, Method.DELETE);
