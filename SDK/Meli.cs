@@ -1,22 +1,19 @@
 using System;
 using System.Web;
 using System.Net;
-using System.IO;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Collections.Specialized;
 using RestSharp;
 using System.Collections.Generic;
 
 namespace MercadoLibre.SDK
 {
 	public class Meli
-	{
-
-        private RestClient client = new RestClient (ApiUrl);
+    {
+        private RestClient client = new RestClient(ApiUrl);
 		static private string apiUrl = "https://api.mercadolibre.com";
 		static private string sdkVersion = "MELI-NET-SDK-0.0.1";
-		static public string ApiUrl {
+		
+        static public string ApiUrl {
 			get {
 				return apiUrl;
 			}
@@ -109,14 +106,14 @@ namespace MercadoLibre.SDK
 
 		public IRestResponse Get (string resource, List<Parameter> param)
 		{
-			bool containsAT = false;
+			bool containsAccessToken = false;
 
 			var request = new RestRequest (resource, Method.GET);
 			List<string> names = new List<string> ();
 			foreach (Parameter p in param) {
 				names.Add (p.Name + "={" + p.Name + "}");
 				if (p.Name.Equals ("access_token")) {
-					containsAT = true;
+					containsAccessToken = true;
 				}
 				p.Type = ParameterType.UrlSegment;
 				request.AddParameter (p);
@@ -128,7 +125,7 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-			if (!string.IsNullOrEmpty (this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT) {
+			if (!string.IsNullOrEmpty (this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAccessToken) {
 				refreshToken ();
 
 				request = new RestRequest (resource, Method.GET);

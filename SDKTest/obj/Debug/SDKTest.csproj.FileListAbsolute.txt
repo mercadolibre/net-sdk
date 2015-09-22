@@ -8,3 +8,16 @@ C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\bin\Debug\n
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\obj\Debug\SDKTest.dll
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\obj\Debug\SDKTest.pdb
+C:\source\meli-net-sdk\SDKTest\bin\Debug\SDKTest.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\SDKTest.pdb
+C:\source\meli-net-sdk\SDKTest\bin\Debug\net-sdk.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\nunit.framework.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\RestSharp.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\Newtonsoft.Json.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\net-sdk.pdb
+C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.csprojResolveAssemblyReference.cache
+C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.dll
+C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.pdb
+C:\source\meli-net-sdk\SDKTest\bin\Debug\nunit.framework.xml
+C:\source\meli-net-sdk\SDKTest\bin\Debug\RestSharp.xml
+C:\source\meli-net-sdk\SDKTest\bin\Debug\Newtonsoft.Json.xml
