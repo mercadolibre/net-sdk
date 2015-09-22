@@ -2,3 +2,9 @@ TestResult.xml
 net-sdk.userprefs
 .DS_Store
 SDK/.DS_Store
+*.obj
+*.exe
+*.pdb
+*.user
+[Bb]in
+[Dd]ebug*/

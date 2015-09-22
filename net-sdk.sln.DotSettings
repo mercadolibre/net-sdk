@@ -393,10 +393,9 @@ public class $TestClassName$ : $AutomockingTest$&#xD;
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Text/@EntryValue">[SetUp]&#xD;
 public void Setup()&#xD;
 {&#xD;
-	$testee$ = Create&lt;$type$&gt;();&#xD;
+	$END$&#xD;
 }&#xD;
-&#xD;
-$END$</s:String>
+</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Reformat/@EntryValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Categories/=Imported_00206_002F7_002F2013/@EntryIndexedValue">Imported 6/7/2013</s:String>
@@ -406,12 +405,12 @@ $END$</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/Type/@EntryValue">InCSharpTypeMember</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Scope/=B68999B9D6B43E47A02B22C12A54C3CC/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
-	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Field/=testee/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Field/=testee/Expression/@EntryValue">guessExpectedType()</s:String>
-	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Field/=testee/Order/@EntryValue">0</s:Int64>
-	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Field/=type/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Field/=type/Expression/@EntryValue">suggestVariableType()</s:String>
-	<s:Int64 x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=62CCBB9F9BBD4147B665CC8E490B07B1/Field/=type/Order/@EntryValue">1</s:Int64>
+	
+	
+	
+	
+	
+	
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E890EA7CF1D3984F842654BFAE4E0420/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E890EA7CF1D3984F842654BFAE4E0420/Shortcut/@EntryValue">tf</s:String>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=E890EA7CF1D3984F842654BFAE4E0420/Description/@EntryValue">Test Fixture attribute</s:String>

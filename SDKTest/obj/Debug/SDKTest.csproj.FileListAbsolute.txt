@@ -8,16 +8,25 @@ C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\bin\Debug\n
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\obj\Debug\SDKTest.dll
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDKTest\obj\Debug\SDKTest.pdb
-C:\source\meli-net-sdk\SDKTest\bin\Debug\SDKTest.dll
-C:\source\meli-net-sdk\SDKTest\bin\Debug\SDKTest.pdb
-C:\source\meli-net-sdk\SDKTest\bin\Debug\net-sdk.dll
 C:\source\meli-net-sdk\SDKTest\bin\Debug\nunit.framework.dll
-C:\source\meli-net-sdk\SDKTest\bin\Debug\RestSharp.dll
 C:\source\meli-net-sdk\SDKTest\bin\Debug\Newtonsoft.Json.dll
-C:\source\meli-net-sdk\SDKTest\bin\Debug\net-sdk.pdb
 C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.csprojResolveAssemblyReference.cache
-C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.dll
-C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.pdb
 C:\source\meli-net-sdk\SDKTest\bin\Debug\nunit.framework.xml
-C:\source\meli-net-sdk\SDKTest\bin\Debug\RestSharp.xml
 C:\source\meli-net-sdk\SDKTest\bin\Debug\Newtonsoft.Json.xml
+C:\source\meli-net-sdk\SDKTest\bin\Debug\HttpParamsUtility.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\MercadoLibreSdkTest.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\MercadoLibreSdkTest.pdb
+C:\source\meli-net-sdk\SDKTest\bin\Debug\MercadoLibreSdk.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\MercadoLibreSdk.pdb
+C:\source\meli-net-sdk\SDKTest\obj\Debug\MercadoLibreSdkTest.dll
+C:\source\meli-net-sdk\SDKTest\obj\Debug\MercadoLibreSdkTest.pdb
+C:\source\meli-net-sdk\SDKTest\bin\Debug\HttpParamsUtility.pdb
+C:\source\meli-net-sdk\SDKTest\bin\Debug\MercadoLibreSdkTest.dll.config
+C:\source\meli-net-sdk\SDKTest\bin\Debug\RichardSzalay.MockHttp.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\System.Net.Http.Extensions.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\System.Net.Http.Primitives.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\System.Net.Http.Extensions.xml
+C:\source\meli-net-sdk\SDKTest\bin\Debug\System.Net.Http.Primitives.xml
+C:\source\meli-net-sdk\SDKTest\obj\Debug\SDKTest.csproj.App.config
+C:\source\meli-net-sdk\SDKTest\bin\Debug\Moq.dll
+C:\source\meli-net-sdk\SDKTest\bin\Debug\Moq.xml
