@@ -4,7 +4,11 @@ net-sdk.userprefs
 SDK/.DS_Store
 *.obj
 *.exe
+*.cache
 *.pdb
 *.user
+*.lib
+*.suo
+obj/
 [Bb]in
 [Dd]ebug*/
