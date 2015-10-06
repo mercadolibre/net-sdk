@@ -5,12 +5,3 @@ C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\bin\Debug\RestS
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\net-sdk.dll
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\net-sdk.pdb
-C:\source\meli-net-sdk\SDK\bin\Debug\Newtonsoft.Json.dll
-C:\source\meli-net-sdk\SDK\bin\Debug\Newtonsoft.Json.xml
-C:\source\meli-net-sdk\SDK\bin\Debug\HttpParamsUtility.dll
-C:\source\meli-net-sdk\SDK\bin\Debug\MercadoLibreSdk.dll
-C:\source\meli-net-sdk\SDK\bin\Debug\MercadoLibreSdk.pdb
-C:\source\meli-net-sdk\SDK\obj\Debug\MercadoLibreSdk.dll
-C:\source\meli-net-sdk\SDK\obj\Debug\MercadoLibreSdk.pdb
-C:\source\meli-net-sdk\SDK\bin\Debug\HttpParamsUtility.pdb
-C:\source\meli-net-sdk\SDK\obj\Debug\SDK.csprojResolveAssemblyReference.cache
