@@ -135,7 +135,7 @@ var categories = await m.GetAsync<Category[]>("/sites/MLB/categories");
 
 ## Deserializing with an anonymous type
 
-If you just need a fiew values back Json.NET has a really cool deserialise method that you feed with an anonymous object.
+If you just need a few values back from an API call, Json.NET has a really cool `DeserializeAnonymousType` method:
 
 ```csharp
 var json = @"{""refresh_token"":""refresh"",""access_token"":""access"",""user_id"":123456789}";
