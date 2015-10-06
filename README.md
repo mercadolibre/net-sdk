@@ -28,7 +28,7 @@ With this instance you can start working on MercadoLibre's APIs.
 There are some design considerations worth to mention:
 
 1. This SDK is a thin layer on top of [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient(v=vs.118).aspx) to handle the [OAuth](https://en.wikipedia.org/wiki/OAuth) WebServer flow for you.
-2. [json.net](http://www.json.net/) is used to serialize and deserialising to and from JSON. It's up to you to call the relevant methods with classes that match the expected json format.
+2. [Json.NET](http://www.newtonsoft.com/json) is used to serialize and deserialising to and from JSON. It's up to you to call the relevant methods with classes that match the expected json format.
 3. [http-params](https://github.com/bounav/http-params) library to generate URIs. The `HttpParams` class is a simple wrapper for `System.Collections.Specialized.NameValueCollection` with a fluent interface. Values are **URL encoded** _automatically_!
 
 ## How do I redirect users to authorize my application?
@@ -86,7 +86,7 @@ if (response.IsSuccessStatusCode)
 {
     var json = await r.Content.ReadAsStringAsync();
 
-    // You can then use json.NET to deserialize the json
+    // You can then use Json.NET to deserialize the json
 }
 ```
 
@@ -101,7 +101,7 @@ if (response.IsSuccessStatusCode)
 {
     var json = await r.Content.ReadAsStringAsync();
 
-    // You can then use json.NET to deserialize the json
+    // You can then use Json.NET to deserialize the json
 }
 ```
 
@@ -142,7 +142,7 @@ var categories = await m.GetAsync<Category[]>("/sites/MLB/categories");
 
 ## Deserializing with an anonymous type
 
-If you just need a view values back json.NET has a really cool deserialise method that you feed with an anonymous object.
+If you just need a view values back Json.NET has a really cool deserialise method that you feed with an anonymous object.
 
 ```csharp
 var json = @"{""refresh_token"":""refresh"",""access_token"":""access"",""user_id"":123456789}";
