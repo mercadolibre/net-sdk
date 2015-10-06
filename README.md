@@ -49,11 +49,11 @@ Once the user is redirected to your callback url, you'll receive in the query st
 m.AuthorizeAsync("the received code", "http://somecallbackurl");
 ```
 
-This method will set the `AccessToken` and a `RefreshToken` property on the `MeliCredentials` instance. 
+This method will set the `AccessToken` and `RefreshToken` properties on the `MeliCredentials` instance. 
 
-An access token authorizes your web application to act on behalf of a mercado libre user.
+An access token represent an authorization for your web application to act on behalf of a mercado libre user.
 
-The `RefreshToken` is only set if your application has the `offline_access` scope enabled.
+The `refresh token` is only set if your application has the `offline_access` scope enabled.
 
 At this stage your are ready to make call to the API on behalf of the user.
 
@@ -96,13 +96,6 @@ if (response.IsSuccessStatusCode)
 var p = new HttpParams().Add("access_token", m.Credentials.AccessToken);
 
 var r = await m.PostAsync("/items", p, new {foo="bar"});
-
-if (response.IsSuccessStatusCode)
-{
-    var json = await r.Content.ReadAsStringAsync();
-
-    // You can then use Json.NET to deserialize the json
-}
 ```
 
 ## Making PUT calls
@@ -142,7 +135,7 @@ var categories = await m.GetAsync<Category[]>("/sites/MLB/categories");
 
 ## Deserializing with an anonymous type
 
-If you just need a view values back Json.NET has a really cool deserialise method that you feed with an anonymous object.
+If you just need a fiew values back Json.NET has a really cool deserialise method that you feed with an anonymous object.
 
 ```csharp
 var json = @"{""refresh_token"":""refresh"",""access_token"":""access"",""user_id"":123456789}";
@@ -159,7 +152,7 @@ But this decision is left to you. You should decide when it is necessary to incl
 
 ## Community
 
-You can contact us if you have questions using the standard communication channels described in the [developer's site](http://developers.mercadolibre.com/discuss)
+You can contact us if you have questions using the standard communication channels described in the [developer's site](http://melidevelopers.invisionzone.com/)
 
 ## I want to contribute!
 
