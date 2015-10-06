@@ -140,7 +140,7 @@ If you just need a few values back from an API call, Json.NET has a really cool 
 ```csharp
 var json = @"{""refresh_token"":""refresh"",""access_token"":""access"",""user_id"":123456789}";
 
-var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
+var token = JsonConvert.DeserializeAnonymousType (json, new {refresh_token="", access_token = ""});
 
 var refreshToken = token.refresh_token;
 ```
