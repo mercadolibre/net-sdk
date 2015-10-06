@@ -5,3 +5,12 @@ C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\bin\Debug\RestS
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\net-sdk.dll
 C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\net-sdk.pdb
+C:\source\meli-net-sdk\SDK\bin\Debug\net-sdk.dll
+C:\source\meli-net-sdk\SDK\bin\Debug\net-sdk.pdb
+C:\source\meli-net-sdk\SDK\bin\Debug\Newtonsoft.Json.dll
+C:\source\meli-net-sdk\SDK\bin\Debug\RestSharp.dll
+C:\source\meli-net-sdk\SDK\obj\Debug\SDK.csprojResolveAssemblyReference.cache
+C:\source\meli-net-sdk\SDK\obj\Debug\net-sdk.dll
+C:\source\meli-net-sdk\SDK\obj\Debug\net-sdk.pdb
+C:\source\meli-net-sdk\SDK\bin\Debug\Newtonsoft.Json.xml
+C:\source\meli-net-sdk\SDK\bin\Debug\RestSharp.xml
