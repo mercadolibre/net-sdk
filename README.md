@@ -57,6 +57,22 @@ The `RefreshToken` is only set if your application has the `offline_access` scop
 
 At this stage your are ready to make call to the API on behalf of the user.
 
+## How do I refresh the access token?
+
+Access tokens are only valid for 6 hours. As long as your app has the `offline_access` scope you will obtain a `refresh token` along with the `access token`. 
+
+When the `refresh token` is set, `MeliApiService` will automatically renew the `access token` after the first `401` unauthorized answer it receives.
+
+If you need to track access and refresh token changes (for example to store the tokens to use them later) you can subscribe to a `TokensChanged` event:
+
+```csharp
+var credentials = new MeliCredentials(MeliSite.Argentina, 123456, "secret");
+
+credentials.TokensChanged += (sender, args) => { doSomethingWithNewTokenValues(args.Info); };
+
+var success = await MercadoLibreApiService.AuthorizeAsync(credentials, code, callBackUrl);
+```
+
 ## Making GET calls
 
 ```csharp
