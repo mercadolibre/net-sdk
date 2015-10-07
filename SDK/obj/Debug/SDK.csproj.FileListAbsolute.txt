@@ -1,7 +1,0 @@
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\bin\Debug\net-sdk.dll
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\bin\Debug\net-sdk.pdb
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\bin\Debug\Newtonsoft.Json.dll
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\bin\Debug\RestSharp.dll
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\net-sdk.dll
-C:\Documents and Settings\wnascimento\Desktop\net-sdk-master\SDK\obj\Debug\net-sdk.pdb

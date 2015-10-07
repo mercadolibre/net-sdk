@@ -9,6 +9,6 @@ SDK/.DS_Store
 *.user
 *.lib
 *.suo
-obj/
+SDK*/obj/*
 [Bb]in
 [Dd]ebug*/
