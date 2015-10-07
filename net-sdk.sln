@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDKTest", "SDKTest\SDKTest.csproj", "{FDC8E728-B153-432C-B9CA-309EA38D9AA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDK", "SDK\SDK.csproj", "{25FDC25B-0BB1-4D13-BAD3-C7CAF22B9F70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{A4DB0EB3-A39F-42A7-BAF5-6A1AF9FBFB27}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\Newtonsoft.Json.dll = Lib\Newtonsoft.Json.dll
+		Lib\RestSharp.dll = Lib\RestSharp.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25FDC25B-0BB1-4D13-BAD3-C7CAF22B9F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25FDC25B-0BB1-4D13-BAD3-C7CAF22B9F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25FDC25B-0BB1-4D13-BAD3-C7CAF22B9F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25FDC25B-0BB1-4D13-BAD3-C7CAF22B9F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC8E728-B153-432C-B9CA-309EA38D9AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC8E728-B153-432C-B9CA-309EA38D9AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC8E728-B153-432C-B9CA-309EA38D9AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC8E728-B153-432C-B9CA-309EA38D9AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SDKTest\SDKTest.csproj
+	EndGlobalSection
+EndGlobal
