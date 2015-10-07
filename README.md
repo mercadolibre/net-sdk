@@ -4,7 +4,11 @@ This is the official .NET SDK for MercadoLibre's Platform.
 
 ## How do I install it?
 
-You can download the latest build at: http://github.com/mercadolibre/net-sdk/downloads
+To install the SDK with [nuget](https://www.nuget.org/packages/MercadoLibreSdk/1.0.0-alpha), run the following command in the Package Manager Console:
+
+```nuget
+PM> Install-Package MercadoLibreSdk -prerelease
+```
 
 And that's it!
 
