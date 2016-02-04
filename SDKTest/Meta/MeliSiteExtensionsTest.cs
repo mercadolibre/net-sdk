@@ -92,7 +92,7 @@ namespace MercadoLibre.SDK.Meta
         public void TestToDomain()
         {
             Assert.AreEqual("mercadolibre.com.ar", MeliSite.Argentina.ToDomain());
-            Assert.AreEqual("mercadolibre.com.br", MeliSite.Brasil.ToDomain());
+            Assert.AreEqual("mercadolivre.com.br", MeliSite.Brasil.ToDomain());
             Assert.AreEqual("mercadolibre.cl", MeliSite.Chile.ToDomain());
             Assert.AreEqual("mercadolibre.com.co", MeliSite.Colombia.ToDomain());
             Assert.AreEqual("mercadolibre.co.cr", MeliSite.CostaRica.ToDomain());
@@ -101,7 +101,7 @@ namespace MercadoLibre.SDK.Meta
             Assert.AreEqual("mercadolibre.com.mx", MeliSite.Mexico.ToDomain());
             Assert.AreEqual("mercadolibre.com.pa", MeliSite.Panama.ToDomain());
             Assert.AreEqual("mercadolibre.com.pe", MeliSite.Peru.ToDomain());
-            Assert.AreEqual("mercadolibre.pt", MeliSite.Portugal.ToDomain());
+            Assert.AreEqual("mercadolivre.pt", MeliSite.Portugal.ToDomain());
             Assert.AreEqual("mercadolibre.com.uy", MeliSite.Uruguay.ToDomain());
             Assert.AreEqual("mercadolibre.com.ve", MeliSite.Venezuela.ToDomain());
         }

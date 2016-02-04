@@ -55,7 +55,7 @@ namespace MercadoLibre.SDK
 
             var client = realService.HttpClientProvider.Create();
 
-            Assert.IsTrue(client.DefaultRequestHeaders.UserAgent.ToString().StartsWith("MELI-NET-SDK/0.0."));
+            Assert.IsTrue(client.DefaultRequestHeaders.UserAgent.ToString().StartsWith("MELI-NET-SDK/"));
             Assert.AreEqual("application/json", client.DefaultRequestHeaders.Accept.ToString());
         }
 
