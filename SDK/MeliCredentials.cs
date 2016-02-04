@@ -87,6 +87,7 @@ namespace MercadoLibre.SDK
         {
             if (AccessToken != model.AccessToken || RefreshToken != model.RefreshToken)
             {
+                model.PreviousAccessToken = AccessToken;
                 OnTokensChanged(new MeliTokenEventArgs {Info = model});
             }
 

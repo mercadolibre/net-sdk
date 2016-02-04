@@ -18,6 +18,17 @@ namespace MercadoLibre.SDK.Models
         public string AccessToken { get; set; }
 
         /// <summary>
+        /// Gets or sets the previous access token.
+        /// </summary>
+        /// <value>
+        /// The previous access token.
+        /// </value>
+        /// <remarks>
+        /// Handy when dealing with access tokens from multiple users.
+        /// </remarks>
+        public string PreviousAccessToken { get; set; }
+        
+        /// <summary>
         /// Gets or sets the type of the token.
         /// </summary>
         /// <value>
@@ -42,7 +53,7 @@ namespace MercadoLibre.SDK.Models
         /// The scope.
         /// </value>
         [DataMember(Name = "scope")]
-        public string Scope { get; set; }
+        public TokenScope Scope { get; set; }
 
         /// <summary>
         /// Gets or sets the mercado libre user identifier.
