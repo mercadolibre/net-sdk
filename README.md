@@ -1,6 +1,6 @@
 # MercadoLibre's .NET SDK
 
-This is the official .NET SDK for MercadoLibre's Platform.
+This is the official .NET SDK for MercadoLibre's Platform. [![Build status](https://ci.appveyor.com/api/projects/status/wc02olyp8oc69l2j?svg=true)](https://ci.appveyor.com/project/comsechq/mercadolibre-net-sdk)
 
 ## How do I install it?
 
