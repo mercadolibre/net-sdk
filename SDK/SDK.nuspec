@@ -9,5 +9,12 @@
         <description>.NET SDK to generate access token and query the Mercado Libre API.</description>
         <summary>.NET SDK to generate access token and query the Mercado Libre API.</summary>
         <tags>meli,mercadolibre</tags>
+        <dependencies>
+            <dependency id="HttpParamsUtility" version="1.0.0" />
+            <dependency id="Newtonsoft.Json" version="7.0.1" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Net.Http" targetFramework="net451" />
+        </frameworkAssemblies>
     </metadata>
 </package>
