@@ -1,0 +1,13 @@
+<package>
+    <metadata>
+        <id>MercadoLibreSdk</id>
+        <version>$version$</version>
+        <authors>xetorthio, TioBorracho, aleml86, ZeusMode, bounav, puchi84</authors>
+        <projectUrl>https://github.com/comsechq/mercadolibre-net-sdk</projectUrl>
+        <copyright>Mercado Libre</copyright>
+        <title>Mercado Libre .NET SDK</title>
+        <description>.NET SDK to generate access token and query the Mercado Libre API.</description>
+        <summary>.NET SDK to generate access token and query the Mercado Libre API.</summary>
+        <tags>meli,mercadolibre</tags>
+    </metadata>
+</package>
