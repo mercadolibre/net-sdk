@@ -62,7 +62,6 @@
     <Compile Include="Meta\MeliSite.cs" />
     <Compile Include="Meta\MeliSiteIdAttribute.cs" />
     <Compile Include="Models\TokenResponse.cs" />
-    <Compile Include="Models\TokenScope.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

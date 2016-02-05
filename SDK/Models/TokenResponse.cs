@@ -47,13 +47,13 @@ namespace MercadoLibre.SDK.Models
         public int ExpiresIn { get; set; }
 
         /// <summary>
-        /// Gets or sets the scope.
+        /// Gets or sets the scope (a combination of "read", "write" and "offline_access", space separated).
         /// </summary>
         /// <value>
         /// The scope.
         /// </value>
         [DataMember(Name = "scope")]
-        public TokenScope Scope { get; set; }
+        public string Scope { get; set; }
 
         /// <summary>
         /// Gets or sets the mercado libre user identifier.
