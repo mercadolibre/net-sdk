@@ -45,6 +45,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -61,10 +62,12 @@
     <Compile Include="Meta\MeliCountryCodeAttribute.cs" />
     <Compile Include="Meta\MeliSite.cs" />
     <Compile Include="Meta\MeliSiteIdAttribute.cs" />
+    <Compile Include="Models\ErrorResponse.cs" />
     <Compile Include="Models\TokenResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="SDK.nuspec" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

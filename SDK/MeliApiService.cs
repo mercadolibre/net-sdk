@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Web;
 using HttpParamsUtility;
 using MercadoLibre.SDK.Http;
 using MercadoLibre.SDK.Meta;
@@ -119,6 +121,7 @@ namespace MercadoLibre.SDK
         /// <summary>
         /// Request a new token.
         /// </summary>
+        /// <param name="originalRequest">The original request.</param>
         /// <param name="httpResponseMessage">The HTTP response message.</param>
         /// <returns>
         /// True to tell <see cref="RetryDelegatingHandler" /> to retry the original request.
@@ -126,39 +129,83 @@ namespace MercadoLibre.SDK
         /// <remarks>
         /// Hook called automatically (set in constructor) by HttpClient after each request.
         /// </remarks>
-        private async Task<bool> RequestNewToken(HttpResponseMessage httpResponseMessage)
+        private async Task<bool> RequestNewToken(HttpRequestMessage originalRequest, HttpResponseMessage httpResponseMessage)
         {
             var shouldRetry = false;
 
             refreshTokenAttempt++;
 
-            // Only retry if we have a refresh token
-            if (httpResponseMessage.StatusCode == HttpStatusCode.Unauthorized
+            // Retry only once and if we have a refresh token and the token is invalid
+            if (!httpResponseMessage.IsSuccessStatusCode
                 && Credentials != null 
                 && !string.IsNullOrEmpty(Credentials.RefreshToken)
                 && refreshTokenAttempt <= 1)
             {
-                var parameters = new HttpParams().Add("grant_type", "refresh_token")
-                                                 .Add("client_id", Credentials.ClientId)
-                                                 .Add("client_secret", Credentials.ClientSecret)
-                                                 .Add("refresh_token", Credentials.RefreshToken);
+                var content = await httpResponseMessage.Content.ReadAsStringAsync();
 
-                using (var client = new HttpClient())
+                var response = JsonConvert.DeserializeObject<ErrorResponse>(content);
+
+                if (response.Message == "invalid_token")
                 {
-                    var newTokens = await SendAsync<TokenResponse>(client, HttpMethod.Post, ApiUrl, "/oauth/token", parameters);
+                    var parameters = new HttpParams().Add("grant_type", "refresh_token")
+                                                     .Add("client_id", Credentials.ClientId)
+                                                     .Add("client_secret", Credentials.ClientSecret)
+                                                     .Add("refresh_token", Credentials.RefreshToken);
 
-                    if (newTokens != null)
+                    using (var client = new HttpClient())
                     {
-                        Credentials.SetTokens(newTokens);
+                        var request = new HttpRequestMessage
+                                      {
+                                          RequestUri = new Uri($"{ApiUrl}oauth/token?{parameters}"),
+                                          Method = HttpMethod.Post,
+                                      };
 
-                        refreshTokenAttempt = 0;
+                        var tokenResponse = await client.SendAsync(request);
 
-                        shouldRetry = true;
+                        if (tokenResponse.IsSuccessStatusCode)
+                        {
+                            var json = await tokenResponse.Content.ReadAsStringAsync();
+
+                            var newTokens = JsonConvert.DeserializeObject<TokenResponse>(json);
+
+                            if (newTokens != null)
+                            {
+                                Credentials.SetTokens(newTokens);
+
+                                ReplaceAccessToken(originalRequest, newTokens.AccessToken);
+
+                                shouldRetry = true;
+                            }
+                        }
                     }
                 }
             }
             
             return shouldRetry;
+        }
+
+        /// <summary>
+        /// Replaces the access token in the URI of the <see cref="request"/> (if present).
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="newAccessToken">The new access token.</param>
+        public static void ReplaceAccessToken(HttpRequestMessage request, string newAccessToken)
+        {
+            var url = request.RequestUri.AbsoluteUri;
+
+            if (url.Contains("access_token="))
+            {
+                var query = HttpUtility.ParseQueryString(request.RequestUri.Query);
+                
+                query["access_token"] = newAccessToken;
+
+                var uriBuilder = new UriBuilder(request.RequestUri)
+                                 {
+                                     Query = query.ToString()
+                                 };
+                
+                request.RequestUri = new Uri(uriBuilder.ToString());
+            }
         }
 
         /// <summary>
@@ -171,11 +218,11 @@ namespace MercadoLibre.SDK
         /// <param name="parameters">The parameters.</param>
         /// <param name="content">The content (will be serialised to JSON).</param>
         /// <returns></returns>
-        protected static async Task<HttpResponseMessage> SendAsync(HttpClient client, HttpMethod method, Uri baseAddress, string resource, HttpParams parameters, object content = null)
+        protected async Task<HttpResponseMessage> SendAsync(HttpClient client, HttpMethod method, Uri baseAddress, string resource, HttpParams parameters, object content = null)
         {
             var requestUrl = parameters == null
                 ? resource
-                : string.Format("{0}?{1}", resource, parameters);
+                : $"{resource}?{parameters}";
 
             client.BaseAddress = baseAddress;
 
@@ -191,9 +238,13 @@ namespace MercadoLibre.SDK
 
                 request.Content = new StringContent(json);
             }
+            
+            refreshTokenAttempt = 0;
 
-            return await client.SendAsync(request)
-                               .ConfigureAwait(false);
+            var response = await client.SendAsync(request)
+                                       .ConfigureAwait(false);
+            
+            return response;
         }
 
         /// <summary>
@@ -207,7 +258,7 @@ namespace MercadoLibre.SDK
         /// <param name="parameters">The parameters.</param>
         /// <param name="content">The content (will be serialised to JSON).</param>
         /// <returns></returns>
-        protected static async Task<T> SendAsync<T>(HttpClient client, HttpMethod method, Uri baseAddress, string resource, HttpParams parameters, object content = null)
+        protected async Task<T> SendAsync<T>(HttpClient client, HttpMethod method, Uri baseAddress, string resource, HttpParams parameters, object content = null)
         {
             var result = default(T);
 
@@ -219,7 +270,7 @@ namespace MercadoLibre.SDK
 
                 result = JsonConvert.DeserializeObject<T>(json);
             }
-
+            
             return result;
         }
 

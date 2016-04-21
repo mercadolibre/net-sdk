@@ -22,7 +22,7 @@ namespace MercadoLibre.SDK.Http
         /// The custom send asynchronous.
         /// </value>
         /// <returns>True when the original request should be retried.</returns>
-        public Func<HttpResponseMessage, Task<bool>> RetryIntercept { get; set; }
+        public Func<HttpRequestMessage, HttpResponseMessage, Task<bool>> RetryIntercept { get; set; }
 
         /// <summary>
         /// Hook to set default settings on the HTTP client that <see cref="Create(System.Net.Http.HttpMessageHandler, bool)"/> returns.

@@ -66,7 +66,7 @@ namespace MercadoLibre.SDK.Http
             var retryHandler = new RetryDelegatingHandler
                           {
                               InnerHandler = innerHandler,
-                              RetryIntercept = async delegate(HttpResponseMessage responseMessage)
+                              RetryIntercept = async delegate(HttpRequestMessage request, HttpResponseMessage responseMessage)
                                   {
                                       if (responseMessage.StatusCode == HttpStatusCode.Unauthorized)
                                       {

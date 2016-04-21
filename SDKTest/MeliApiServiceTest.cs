@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -202,6 +203,30 @@ namespace MercadoLibre.SDK
             Assert.IsTrue(response.IsSuccessStatusCode);
 
             mockHttp.VerifyNoOutstandingExpectation();
+        }
+
+        [Test]
+        public void TestReplaceAccessToken()
+        {
+            var url = "https://api.mercadolibre.com/moderations/denounces/MLB11378/ITM/options?first=value&access_token=APP_USR-5128891793554461-041805-e0dd11044b96a343fcb6b1361800bbb0__F_A__-191075056&another=one";
+
+            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
+
+            MeliApiService.ReplaceAccessToken(request, "new_token_value");
+
+            Assert.AreEqual("https://api.mercadolibre.com/moderations/denounces/MLB11378/ITM/options?first=value&access_token=new_token_value&another=one", request.RequestUri.AbsoluteUri);
+        }
+
+        [Test]
+        public void TestReplaceAccessTokenWhenNothingToReplace()
+        {
+            var url = "https://api.mercadolibre.com/moderations/denounces/MLB11378/ITM/options?first=value&another=one";
+
+            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(url));
+
+            MeliApiService.ReplaceAccessToken(request, "new_token_value");
+
+            Assert.AreEqual("https://api.mercadolibre.com/moderations/denounces/MLB11378/ITM/options?first=value&another=one", request.RequestUri.AbsoluteUri);
         }
     }
 }

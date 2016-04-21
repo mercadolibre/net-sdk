@@ -17,7 +17,7 @@ namespace MercadoLibre.SDK.Http
         /// The retry intercept.
         /// </value>
         /// <returns>True when the original request should be retried.</returns>
-        public Func<HttpResponseMessage, Task<bool>> RetryIntercept { get; set; }
+        public Func<HttpRequestMessage, HttpResponseMessage, Task<bool>> RetryIntercept { get; set; }
 
         /// <summary>
         /// Sends an HTTP request to the inner handler to send to the server as an asynchronous operation.
@@ -34,7 +34,7 @@ namespace MercadoLibre.SDK.Http
             if (RetryIntercept != null)
             {
                 // Hook to determine wether the request should be retried or not
-                if (await RetryIntercept(response))
+                if (await RetryIntercept(request, response))
                 {
                     // Retry
                     response = await base.SendAsync(request, cancellationToken);

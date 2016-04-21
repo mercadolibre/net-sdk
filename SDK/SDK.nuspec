@@ -15,6 +15,7 @@
         </dependencies>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.Net.Http" targetFramework="net451" />
+            <frameworkAssembly assemblyName="System.Web" targetFramework="net451" />
         </frameworkAssemblies>
     </metadata>
 </package>
