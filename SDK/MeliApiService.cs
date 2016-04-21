@@ -156,7 +156,7 @@ namespace MercadoLibre.SDK
                     {
                         var request = new HttpRequestMessage
                                       {
-                                          RequestUri = new Uri($"{ApiUrl}oauth/token?{parameters}"),
+                                          RequestUri = new Uri(string.Format("{0}oauth/token?{1}", ApiUrl, parameters)),
                                           Method = HttpMethod.Post,
                                       };
 
@@ -222,7 +222,7 @@ namespace MercadoLibre.SDK
         {
             var requestUrl = parameters == null
                 ? resource
-                : $"{resource}?{parameters}";
+                : string.Format("{0}?{1}", resource, parameters);
 
             client.BaseAddress = baseAddress;
 
