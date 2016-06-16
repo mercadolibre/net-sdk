@@ -29,7 +29,8 @@ This is a 2 step process.
 First get the link to redirect the user. This is very easy! Just:
 
 ```csharp
-string redirectUrl = m.GetAuthUrl("http://somecallbackurl");
+
+string redirectUrl = m.GetAuthUrl(Meli.AuthUrls.MLB,"http://somecallbackurl"); //Don't forget to set the autentication URL of your country
 ```
 
 This will give you the url to redirect the user. You need to specify a callback url which will be the one that the user will redirected after a successfull authrization process.

@@ -15,7 +15,9 @@ namespace MercadoLibre.SDK
 
         private RestClient client = new RestClient (ApiUrl);
 		static private string apiUrl = "https://api.mercadolibre.com";
-		static private string sdkVersion = "MELI-NET-SDK-0.0.1";
+
+		static private string sdkVersion = "MELI-NET-SDK-1.0.2";
+
 		static public string ApiUrl {
 			get {
 				return apiUrl;
@@ -25,13 +27,44 @@ namespace MercadoLibre.SDK
 			}
 		}
 
-		public string ClientSecret { get; private set; }
+
+        public static class AuthUrls
+        {
+            public static string MLA { get { return "https://auth.mercadolibre.com.ar"; } } //Argentina
+            public static string MLB { get { return "https://auth.mercadolivre.com.br"; } } // Brasil
+            public static string MCO { get { return "https://auth.mercadolibre.com.co"; } } // Colombia
+            public static string MCR { get { return "https://auth.mercadolibre.com.cr"; } } // Costa Rica
+            public static string MEC { get { return "https://auth.mercadolibre.com.ec"; } } // Ecuador
+            public static string MLC { get { return "https://auth.mercadolibre.com.cl"; } } // Chile
+            public static string MLM { get { return "https://auth.mercadolibre.com.mx"; } } // Mexico
+            public static string MLU { get { return "https://auth.mercadolibre.com.uy"; } } // Uruguay
+            public static string MLV { get { return "https://auth.mercadolibre.com.ve"; } } // Venezuela
+            public static string MPA { get { return "https://auth.mercadolibre.com.pa"; } } // Panama
+            public static string MPE { get { return "https://auth.mercadolibre.com.pe"; } } // Peru
+            public static string MPT { get { return "https://auth.mercadolibre.com.pt"; } } // Portugal
+            public static string MRD { get { return "https://auth.mercadolibre.com.do"; } } // Dominicana
+
+
+        }
+
+        public string ClientSecret { get; private set; }
 
 		public long ClientId { get; private set; }
 
 		public string AccessToken { get; private set; }
 
 		public string RefreshToken { get; private set; }
+
+        /** News **/
+
+        public long ExperiIn { get; private set; }
+
+        public string Scope { get; private set; }
+
+        public string UserId { get; private set; }
+
+        public string TokenType { get; private set; }
+
 
 		public Meli (long clientId, string clientSecret)
 		{
@@ -46,7 +79,8 @@ namespace MercadoLibre.SDK
 			this.AccessToken = accessToken;
 		}
 
-		public Meli (long clientId, string clientSecret, string accessToken, string refreshToken)
+      
+        public Meli (long clientId, string clientSecret, string accessToken, string refreshToken)
 		{
 			this.ClientId = clientId;
 			this.ClientSecret = clientSecret;
@@ -54,10 +88,11 @@ namespace MercadoLibre.SDK
 			this.RefreshToken = refreshToken;
 		}
 
-		public string GetAuthUrl (string redirectUri)
+		public string GetAuthUrl (string authUrl , string redirectUri)
 		{
 
-			return "https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=" + ClientId + "&redirect_uri=" + HttpUtility.UrlEncode (redirectUri);
+			return authUrl+"/authorization?response_type=code&client_id=" + ClientId + "&redirect_uri=" + HttpUtility.UrlEncode (redirectUri);
+
 		}
 
 		public void Authorize (string code, string redirectUri)
@@ -74,10 +109,16 @@ namespace MercadoLibre.SDK
 			var response = ExecuteRequest (request);
 
 			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
-				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
+
+				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = "", expires_in = 0,
+                user_id = "", scope = "", token_type = ""});
 				this.AccessToken = token.access_token;
 				this.RefreshToken = token.refresh_token;
-			} else {
+                this.ExperiIn = Convert.ToInt64(token.expires_in);
+                this.Scope = token.scope;
+                this.UserId = token.user_id;
+                this.TokenType = token.token_type;
+            } else {
 				throw new AuthorizationException ();
 			}
 		}
@@ -87,7 +128,8 @@ namespace MercadoLibre.SDK
 			return Get (resource, new List<Parameter> ());
 		}
 
-		void refreshToken ()
+
+		public void refreshToken ()
 		{
 			var request = new RestRequest ("/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}", Method.POST);
 			request.AddParameter ("client_id", this.ClientId, ParameterType.UrlSegment);
@@ -99,15 +141,57 @@ namespace MercadoLibre.SDK
 			var response = ExecuteRequest (request);
 
 			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
-				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = ""});
-				this.AccessToken = token.access_token;
-				this.RefreshToken = token.refresh_token;
-			} else {
+
+				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = "", expires_in = 0,
+                user_id = "", scope = "", token_type = ""});
+                this.AccessToken = token.access_token;
+                this.RefreshToken = token.refresh_token;
+                this.ExperiIn = Convert.ToInt64(token.expires_in);
+                this.Scope = token.scope;
+                this.UserId = token.user_id;
+                this.TokenType = token.token_type;
+            } else {
 				throw new AuthorizationException ();
 			}
 		}
 
-		public IRestResponse Get (string resource, List<Parameter> param)
+     
+        public void refreshToken(string refresh_token )
+        {
+            var request = new RestRequest("/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}", Method.POST);
+            request.AddParameter("client_id", this.ClientId, ParameterType.UrlSegment);
+            request.AddParameter("client_secret", this.ClientSecret, ParameterType.UrlSegment);
+            request.AddParameter("refresh_token", refresh_token, ParameterType.UrlSegment);
+
+            request.AddHeader("Accept", "application/json");
+
+            var response = ExecuteRequest(request);
+
+            if (response.StatusCode.Equals(HttpStatusCode.OK))
+            {
+                var token = JsonConvert.DeserializeAnonymousType(response.Content, new
+                {
+                    refresh_token = "",
+                    access_token = "",
+                    expires_in = 0,
+                    user_id = "",
+                    scope = "",
+                    token_type = ""
+                });
+                this.AccessToken = token.access_token;
+                this.RefreshToken = token.refresh_token;
+                this.ExperiIn = Convert.ToInt64(token.expires_in);
+                this.Scope = token.scope;
+                this.UserId = token.user_id;
+                this.TokenType = token.token_type;
+            }
+            else
+            {
+                throw new AuthorizationException();
+            }
+        }
+
+        public IRestResponse Get (string resource, List<Parameter> param)
 		{
 			bool containsAT = false;
 
@@ -127,27 +211,6 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Accept", "application/json");
 
 			var response = ExecuteRequest (request);
-
-			if (!string.IsNullOrEmpty (this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT) {
-				refreshToken ();
-
-				request = new RestRequest (resource, Method.GET);
-				names = new List<string> ();
-				foreach (Parameter p in param) {
-					if (p.Name.Equals ("access_token")) {
-						p.Value = this.AccessToken;
-					}
-					names.Add (p.Name + "={" + p.Name + "}");
-					p.Type = ParameterType.UrlSegment;
-					request.AddParameter (p);
-				}
-
-				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
-
-				request.AddHeader ("Accept", "application/json");
-
-				response = ExecuteRequest (request);
-			}
 
 			return response;
 		}
@@ -177,30 +240,6 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-            if (!string.IsNullOrEmpty(this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT){
-				refreshToken ();
-
-				request = new RestRequest (resource, Method.POST);
-				names = new List<string> ();
-				foreach (Parameter p in param) {
-					if (p.Name.Equals ("access_token")) {
-						p.Value = this.AccessToken;
-					}
-					names.Add (p.Name + "={" + p.Name + "}");
-					p.Type = ParameterType.UrlSegment;
-					request.AddParameter (p);
-				}
-
-				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
-
-				request.AddHeader ("Accept", "application/json");
-				request.AddHeader ("Content-Type", "application/json");
-				request.RequestFormat = DataFormat.Json;
-
-				request.AddBody (body);
-				response = ExecuteRequest (request);
-			}
-
 			return response;
 		}
 
@@ -229,30 +268,6 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
-            if (!string.IsNullOrEmpty(this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT){
-				refreshToken ();
-
-				request = new RestRequest (resource, Method.PUT);
-				names = new List<string> ();
-				foreach (Parameter p in param) {
-					if (p.Name.Equals ("access_token")) {
-						p.Value = this.AccessToken;
-					}
-					names.Add (p.Name + "={" + p.Name + "}");
-					p.Type = ParameterType.UrlSegment;
-					request.AddParameter (p);
-				}
-
-				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
-
-				request.AddHeader ("Accept", "application/json");
-				request.AddHeader ("Content-Type", "application/json");
-				request.RequestFormat = DataFormat.Json;
-
-				request.AddBody (body);
-				response = ExecuteRequest (request);
-			}
-
 			return response;
 		}
 
@@ -276,27 +291,6 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Accept", "application/json");
 
 			var response = ExecuteRequest (request);
-
-            if (!string.IsNullOrEmpty(this.RefreshToken) && (response.StatusCode == HttpStatusCode.NotFound || response.StatusCode == HttpStatusCode.Unauthorized || response.StatusCode == HttpStatusCode.Forbidden) && containsAT){
-				refreshToken ();
-
-				request = new RestRequest (resource, Method.DELETE);
-				names = new List<string> ();
-				foreach (Parameter p in param) {
-					if (p.Name.Equals ("access_token")) {
-						p.Value = this.AccessToken;
-					}
-					names.Add (p.Name + "={" + p.Name + "}");
-					p.Type = ParameterType.UrlSegment;
-					request.AddParameter (p);
-				}
-
-				request.Resource = resource + "?" + String.Join ("&", names.ToArray ());
-
-				request.AddHeader ("Accept", "application/json");
-
-				response = ExecuteRequest (request);
-			}
 
 			return response;
 		}
