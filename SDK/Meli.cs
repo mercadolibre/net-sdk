@@ -15,9 +15,7 @@ namespace MercadoLibre.SDK
 
         private RestClient client = new RestClient (ApiUrl);
 		static private string apiUrl = "https://api.mercadolibre.com";
-
 		static private string sdkVersion = "MELI-NET-SDK-1.0.2";
-
 		static public string ApiUrl {
 			get {
 				return apiUrl;
@@ -27,7 +25,6 @@ namespace MercadoLibre.SDK
 			}
 		}
 
-
         public static class AuthUrls
         {
             public static string MLA { get { return "https://auth.mercadolibre.com.ar"; } } //Argentina
@@ -35,7 +32,7 @@ namespace MercadoLibre.SDK
             public static string MCO { get { return "https://auth.mercadolibre.com.co"; } } // Colombia
             public static string MCR { get { return "https://auth.mercadolibre.com.cr"; } } // Costa Rica
             public static string MEC { get { return "https://auth.mercadolibre.com.ec"; } } // Ecuador
-            public static string MLC { get { return "https://auth.mercadolibre.com.cl"; } } // Chile
+            public static string MLC { get { return "https://auth.mercadolibre.cl"; } } // Chile
             public static string MLM { get { return "https://auth.mercadolibre.com.mx"; } } // Mexico
             public static string MLU { get { return "https://auth.mercadolibre.com.uy"; } } // Uruguay
             public static string MLV { get { return "https://auth.mercadolibre.com.ve"; } } // Venezuela
@@ -92,7 +89,6 @@ namespace MercadoLibre.SDK
 		{
 
 			return authUrl+"/authorization?response_type=code&client_id=" + ClientId + "&redirect_uri=" + HttpUtility.UrlEncode (redirectUri);
-
 		}
 
 		public void Authorize (string code, string redirectUri)
@@ -109,7 +105,6 @@ namespace MercadoLibre.SDK
 			var response = ExecuteRequest (request);
 
 			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
-
 				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = "", expires_in = 0,
                 user_id = "", scope = "", token_type = ""});
 				this.AccessToken = token.access_token;
@@ -128,7 +123,6 @@ namespace MercadoLibre.SDK
 			return Get (resource, new List<Parameter> ());
 		}
 
-
 		public void refreshToken ()
 		{
 			var request = new RestRequest ("/oauth/token?grant_type=refresh_token&client_id={client_id}&client_secret={client_secret}&refresh_token={refresh_token}", Method.POST);
@@ -141,7 +135,6 @@ namespace MercadoLibre.SDK
 			var response = ExecuteRequest (request);
 
 			if (response.StatusCode.Equals (HttpStatusCode.OK)) {
-
 				var token = JsonConvert.DeserializeAnonymousType (response.Content, new {refresh_token="", access_token = "", expires_in = 0,
                 user_id = "", scope = "", token_type = ""});
                 this.AccessToken = token.access_token;
@@ -212,6 +205,7 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
+			
 			return response;
 		}
 
@@ -239,6 +233,8 @@ namespace MercadoLibre.SDK
 			request.AddBody (body);
 
 			var response = ExecuteRequest (request);
+
+           
 
 			return response;
 		}
@@ -268,6 +264,8 @@ namespace MercadoLibre.SDK
 
 			var response = ExecuteRequest (request);
 
+           
+
 			return response;
 		}
 
@@ -291,6 +289,7 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Accept", "application/json");
 
 			var response = ExecuteRequest (request);
+
 
 			return response;
 		}
