@@ -30,7 +30,7 @@ namespace MercadoLibre.SDK
             public static string MLA { get { return "https://auth.mercadolibre.com.ar"; } } //Argentina
             public static string MLB { get { return "https://auth.mercadolivre.com.br"; } } // Brasil
             public static string MCO { get { return "https://auth.mercadolibre.com.co"; } } // Colombia
-            public static string MCR { get { return "https://auth.mercadolibre.com.cr"; } } // Costa Rica
+            public static string MCR { get { return "https://auth.mercadolibre.co.cr"; } } // Costa Rica
             public static string MEC { get { return "https://auth.mercadolibre.com.ec"; } } // Ecuador
             public static string MLC { get { return "https://auth.mercadolibre.cl"; } } // Chile
             public static string MLM { get { return "https://auth.mercadolibre.com.mx"; } } // Mexico
@@ -38,10 +38,15 @@ namespace MercadoLibre.SDK
             public static string MLV { get { return "https://auth.mercadolibre.com.ve"; } } // Venezuela
             public static string MPA { get { return "https://auth.mercadolibre.com.pa"; } } // Panama
             public static string MPE { get { return "https://auth.mercadolibre.com.pe"; } } // Peru
-            public static string MPT { get { return "https://auth.mercadolibre.com.pt"; } } // Portugal
+            public static string MPT { get { return "https://auth.mercadolivre.pt"; } } // Portugal
             public static string MRD { get { return "https://auth.mercadolibre.com.do"; } } // Dominicana
-
-
+            public static string MPY { get { return "https://auth.mercadolibre.com.py"; } } // Paraguay
+            public static string MGT { get { return "https://auth.mercadolibre.com.gt"; } } // Guatemala
+            public static string MHN { get { return "https://auth.mercadolibre.com.hn"; } } // Honduras
+            public static string MSV { get { return "https://auth.mercadolibre.com.sv"; } } // El Salvador
+            public static string MNI { get { return "https://auth.mercadolibre.com.ni"; } } // Nicaragua
+            public static string MBO { get { return "https://auth.mercadolibre.com.bo"; } } // Bolivia
+            
         }
 
         public string ClientSecret { get; private set; }
