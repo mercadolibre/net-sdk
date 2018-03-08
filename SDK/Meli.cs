@@ -230,7 +230,7 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Content-Type", "application/json");
 			request.RequestFormat = DataFormat.Json;
 
-			request.AddBody (body);
+			request.AddParameter("application/json", body, ParameterType.RequestBody);
 
 			var response = ExecuteRequest (request);
 
@@ -260,7 +260,7 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Content-Type", "application/json");
 			request.RequestFormat = DataFormat.Json;
 
-			request.AddBody (body);
+			request.AddParameter("application/json", body, ParameterType.RequestBody);
 
 			var response = ExecuteRequest (request);
 
