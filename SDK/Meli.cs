@@ -114,7 +114,7 @@ namespace MercadoLibre.SDK
                 this.UserId = token.user_id;
                 this.TokenType = token.token_type;
             } else {
-				throw new AuthorizationException ();
+				throw new AuthorizationException (response.Content);
 			}
 		}
 
@@ -144,7 +144,7 @@ namespace MercadoLibre.SDK
                 this.UserId = token.user_id;
                 this.TokenType = token.token_type;
             } else {
-				throw new AuthorizationException ();
+					throw new AuthorizationException (response.Content);
 			}
 		}
 
@@ -180,7 +180,7 @@ namespace MercadoLibre.SDK
             }
             else
             {
-                throw new AuthorizationException();
+                	throw new AuthorizationException (response.Content);
             }
         }
 
@@ -230,7 +230,7 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Content-Type", "application/json");
 			request.RequestFormat = DataFormat.Json;
 
-			request.AddBody (body);
+			request.AddParameter("application/json", body, ParameterType.RequestBody);
 
 			var response = ExecuteRequest (request);
 
@@ -260,7 +260,7 @@ namespace MercadoLibre.SDK
 			request.AddHeader ("Content-Type", "application/json");
 			request.RequestFormat = DataFormat.Json;
 
-			request.AddBody (body);
+			request.AddParameter("application/json", body, ParameterType.RequestBody);
 
 			var response = ExecuteRequest (request);
 

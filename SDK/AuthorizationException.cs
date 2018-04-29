@@ -10,6 +10,8 @@ namespace MercadoLibre.SDK
 
 		public AuthorizationException(string msg, Exception ex) : base(msg, ex) {
 		}
+		public AuthorizationException(string msg) : base(msg) {
+		}
 	}
 }
 
