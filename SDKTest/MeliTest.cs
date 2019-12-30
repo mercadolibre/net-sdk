@@ -5,6 +5,7 @@ using System.IO;
 using System.Collections.Specialized;
 using RestSharp;
 using System.Collections.Generic;
+using MercadoLibre.SDK.Models;
 
 namespace MercadoLibre.SDK.Test
 {
@@ -72,6 +73,25 @@ namespace MercadoLibre.SDK.Test
 			Assert.IsNotNullOrEmpty (response.Content);
 		}
 
+		/*
+		[Test]
+		public void TestGetOrder()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli();
+			m.getOrder("resource", "valid access_token");
+		}
+
+		
+		[Test]
+		public void TestGetOrder()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli();
+			m.getThumbnailByItemID("item_id", "valid access_token");
+		}*/
+
+
 		[Test]
 		public void HandleErrors ()
 		{
@@ -120,6 +140,25 @@ namespace MercadoLibre.SDK.Test
 
 			Assert.AreEqual (HttpStatusCode.Created, r.StatusCode);
 		}
+		/*
+		[Test]
+		public void PostRefreshToken()
+		{
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli(123456, "client secret");
+			m.refreshToken("refresh_token");
+		}
+
+		[Test]
+		public void PostRefreshToken()
+		{
+
+			Meli.ApiUrl = "http://localhost:3000";
+			Meli m = new Meli();
+			Order Order = new Order();
+			m.sendMessage(Order, "message", "valid access_token");
+		}
+		*/
 
 		[Test]
 		public void Put ()
@@ -198,5 +237,11 @@ namespace MercadoLibre.SDK.Test
 			var response = m.Get ("/echo/user_agent");
 			Assert.AreEqual (HttpStatusCode.OK, response.StatusCode);
 	    }
+
+
+		
+
+
+		
 	}
 }
