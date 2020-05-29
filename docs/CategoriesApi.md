@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.CategoriesApi
+# Org.OpenAPITools.MeliLibApi.CategoriesApi
 
 All URIs are relative to *https://api.mercadolibre.com*
 
@@ -19,7 +19,7 @@ Return by category.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 
@@ -86,7 +86,7 @@ Return a categories by site.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 
@@ -153,7 +153,7 @@ Predictor
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 

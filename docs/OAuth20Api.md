@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.OAuth20Api
+# Org.OpenAPITools.MeliLibApi.OAuth20Api
 
 All URIs are relative to *https://api.mercadolibre.com*
 
@@ -18,7 +18,7 @@ Authentication Endpoint
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 
@@ -91,7 +91,7 @@ Partner makes a request to the token endpoint by adding the following parameters
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 

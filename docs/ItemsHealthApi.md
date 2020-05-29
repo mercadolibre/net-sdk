@@ -1,49 +1,48 @@
-# Org.OpenAPITools.Api.NewEndpointsApi
+# Org.OpenAPITools.MeliLibApi.ItemsHealthApi
 
 All URIs are relative to *https://api.mercadolibre.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ItemsIdCatalogForewarningDateGet**](NewEndpointsApi.md#itemsidcatalogforewarningdateget) | **GET** /items/{id}/catalog_forewarning/date | BuyBox moderation date
-[**ItemsIdHealthActionGet**](NewEndpointsApi.md#itemsidhealthactionget) | **GET** /items/{id}/health/action | API Health Items
-[**ItemsIdHealthGet**](NewEndpointsApi.md#itemsidhealthget) | **GET** /items/{id}/health | API Health Items
-[**SitesSiteIdHealthLevelsGet**](NewEndpointsApi.md#sitessiteidhealthlevelsget) | **GET** /sites/{site_id}/health_levels | API Health Items
+[**ItemsIdHealthActionsGet**](ItemsHealthApi.md#itemsidhealthactionsget) | **GET** /items/{id}/health/actions | Return item health actions by id.
+[**ItemsIdHealthGet**](ItemsHealthApi.md#itemsidhealthget) | **GET** /items/{id}/health | Return health by id.
+[**SitesSiteIdHealthLevelsGet**](ItemsHealthApi.md#sitessiteidhealthlevelsget) | **GET** /sites/{site_id}/health_levels | Return health levels.
 
 
-<a name="itemsidcatalogforewarningdateget"></a>
-# **ItemsIdCatalogForewarningDateGet**
-> void ItemsIdCatalogForewarningDateGet (string id, string version)
+<a name="itemsidhealthactionsget"></a>
+# **ItemsIdHealthActionsGet**
+> void ItemsIdHealthActionsGet (string id, string accessToken)
 
-BuyBox moderation date
+Return item health actions by id.
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 
 namespace Example
 {
-    public class ItemsIdCatalogForewarningDateGetExample
+    public class ItemsIdHealthActionsGetExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new NewEndpointsApi(config);
+            var apiInstance = new ItemsHealthApi(config);
             var id = id_example;  // string | 
-            var version = version_example;  // string | 
+            var accessToken = accessToken_example;  // string | 
 
             try
             {
-                // BuyBox moderation date
-                apiInstance.ItemsIdCatalogForewarningDateGet(id, version);
+                // Return item health actions by id.
+                apiInstance.ItemsIdHealthActionsGet(id, accessToken);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NewEndpointsApi.ItemsIdCatalogForewarningDateGet: " + e.Message );
+                Debug.Print("Exception when calling ItemsHealthApi.ItemsIdHealthActionsGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -57,74 +56,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  | 
- **version** | **string**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ok |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="itemsidhealthactionget"></a>
-# **ItemsIdHealthActionGet**
-> void ItemsIdHealthActionGet (string id)
-
-API Health Items
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class ItemsIdHealthActionGetExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new NewEndpointsApi(config);
-            var id = id_example;  // string | 
-
-            try
-            {
-                // API Health Items
-                apiInstance.ItemsIdHealthActionGet(id);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling NewEndpointsApi.ItemsIdHealthActionGet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **accessToken** | **string**|  | 
 
 ### Return type
 
@@ -148,15 +80,15 @@ No authorization required
 
 <a name="itemsidhealthget"></a>
 # **ItemsIdHealthGet**
-> void ItemsIdHealthGet (string id)
+> void ItemsIdHealthGet (string id, string accessToken)
 
-API Health Items
+Return health by id.
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 
@@ -168,17 +100,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new NewEndpointsApi(config);
+            var apiInstance = new ItemsHealthApi(config);
             var id = id_example;  // string | 
+            var accessToken = accessToken_example;  // string | 
 
             try
             {
-                // API Health Items
-                apiInstance.ItemsIdHealthGet(id);
+                // Return health by id.
+                apiInstance.ItemsIdHealthGet(id, accessToken);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NewEndpointsApi.ItemsIdHealthGet: " + e.Message );
+                Debug.Print("Exception when calling ItemsHealthApi.ItemsIdHealthGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -192,6 +125,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  | 
+ **accessToken** | **string**|  | 
 
 ### Return type
 
@@ -217,13 +151,13 @@ No authorization required
 # **SitesSiteIdHealthLevelsGet**
 > void SitesSiteIdHealthLevelsGet (string siteId)
 
-API Health Items
+Return health levels.
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
+using Org.OpenAPITools.MeliLibApi;
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 
@@ -235,17 +169,17 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new NewEndpointsApi(config);
+            var apiInstance = new ItemsHealthApi(config);
             var siteId = siteId_example;  // string | 
 
             try
             {
-                // API Health Items
+                // Return health levels.
                 apiInstance.SitesSiteIdHealthLevelsGet(siteId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling NewEndpointsApi.SitesSiteIdHealthLevelsGet: " + e.Message );
+                Debug.Print("Exception when calling ItemsHealthApi.SitesSiteIdHealthLevelsGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

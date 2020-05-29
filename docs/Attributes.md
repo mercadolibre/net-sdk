@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | [optional] 
 **ValueId** | **string** |  | [optional] 
 **ValueName** | **string** |  | [optional] 
-**ValueStruct** | [**Object**](.md) |  | [optional] 
+**ValueStruct** | [**AttributesValueStruct**](AttributesValueStruct.md) |  | [optional] 
 **Values** | [**List&lt;AttributesValues&gt;**](AttributesValues.md) |  | [optional] 
 **AttributeGroupId** | **string** |  | [optional] 
 **AttributeGroupName** | **string** |  | [optional] 

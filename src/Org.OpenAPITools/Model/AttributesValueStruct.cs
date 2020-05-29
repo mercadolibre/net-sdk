@@ -26,25 +26,33 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// ItemPictures
+    /// AttributesValueStruct
     /// </summary>
     [DataContract]
-    public partial class ItemPictures :  IEquatable<ItemPictures>, IValidatableObject
+    public partial class AttributesValueStruct :  IEquatable<AttributesValueStruct>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ItemPictures" /> class.
+        /// Initializes a new instance of the <see cref="AttributesValueStruct" /> class.
         /// </summary>
-        /// <param name="source">source.</param>
-        public ItemPictures(string source = default(string))
+        /// <param name="number">number.</param>
+        /// <param name="unit">unit.</param>
+        public AttributesValueStruct(decimal number = default(decimal), string unit = default(string))
         {
-            this.Source = source;
+            this.Number = number;
+            this.Unit = unit;
         }
         
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets Number
         /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=false)]
-        public string Source { get; set; }
+        [DataMember(Name="number", EmitDefaultValue=false)]
+        public decimal Number { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Unit
+        /// </summary>
+        [DataMember(Name="unit", EmitDefaultValue=false)]
+        public string Unit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +61,9 @@ namespace Org.OpenAPITools.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ItemPictures {\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("class AttributesValueStruct {\n");
+            sb.Append("  Number: ").Append(Number).Append("\n");
+            sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +84,28 @@ namespace Org.OpenAPITools.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ItemPictures);
+            return this.Equals(input as AttributesValueStruct);
         }
 
         /// <summary>
-        /// Returns true if ItemPictures instances are equal
+        /// Returns true if AttributesValueStruct instances are equal
         /// </summary>
-        /// <param name="input">Instance of ItemPictures to be compared</param>
+        /// <param name="input">Instance of AttributesValueStruct to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ItemPictures input)
+        public bool Equals(AttributesValueStruct input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Source == input.Source ||
-                    (this.Source != null &&
-                    this.Source.Equals(input.Source))
+                    this.Number == input.Number ||
+                    this.Number.Equals(input.Number)
+                ) && 
+                (
+                    this.Unit == input.Unit ||
+                    (this.Unit != null &&
+                    this.Unit.Equals(input.Unit))
                 );
         }
 
@@ -105,8 +118,9 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                hashCode = hashCode * 59 + this.Number.GetHashCode();
+                if (this.Unit != null)
+                    hashCode = hashCode * 59 + this.Unit.GetHashCode();
                 return hashCode;
             }
         }
