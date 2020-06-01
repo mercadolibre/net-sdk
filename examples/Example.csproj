@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Org.OpenAPITools\Org.OpenAPITools.csproj" />
+    <ProjectReference Include="..\src\MeliLibTools\MeliLibTools.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

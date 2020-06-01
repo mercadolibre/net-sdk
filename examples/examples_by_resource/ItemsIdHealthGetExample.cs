@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
-    public class ItemsIdHealthActionsGetExample
+    public class ItemsIdHealthGetExample
     {
         public static void Mainext()
         {
@@ -19,13 +19,14 @@ namespace Example
 
             try
             {
-                // Return item health actions by id.
-                apiInstance.ItemsIdHealthActionsGet(id, accessToken);
-                // Console.Write("Resultado get:" + apiInstance.ItemsIdHealthActionsGetWithHttpInfo(id, accessToken).Data);
+                // Return health by id.
+                apiInstance.ItemsIdHealthGet(id, accessToken);
+                // To see output in console
+                // Console.Write("Resultado get:" + apiInstance.ItemsIdHealthGetWithHttpInfo(id, accessToken).Data);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ItemsHealthApi.ItemsIdHealthActionsGet: " + e.Message );
+                Debug.Print("Exception when calling ItemsHealthApi.SitesIdHealthGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }

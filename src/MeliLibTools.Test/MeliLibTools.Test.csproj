@@ -4,7 +4,7 @@ MELI Markeplace SDK
 
 This is a the codebase to generate a SDK for Open Platform Marketplace
 
-The version of the OpenAPI document: 0.0.24
+The version of the OpenAPI document: 0.0.27
 
 -->
 <Project Sdk="Microsoft.NET.Sdk">
@@ -24,7 +24,7 @@ The version of the OpenAPI document: 0.0.24
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MeliLibTools\MeliLibTools.csproj">
-      <Project>{91A21B56-4094-463C-AC46-52A69084EF06}</Project>
+      <Project>{81E8BFBA-1DA8-43F5-9ABF-2A363C4EED45}</Project>
       <Name>MeliLibTools</Name>
     </ProjectReference>
   </ItemGroup>

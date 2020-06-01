@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
