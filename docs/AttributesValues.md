@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.AttributesValues
+# MeliLibTools.Model.AttributesValues
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+MELI Markeplace SDK
+
+This is a the codebase to generate a SDK for Open Platform Marketplace
+
+The version of the OpenAPI document: 0.0.24
+
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MeliLibTools.Test</RootNamespace>
+    <AssemblyName>MeliLibTools.Test</AssemblyName>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MeliLibTools\MeliLibTools.csproj">
+      <Project>{91A21B56-4094-463C-AC46-52A69084EF06}</Project>
+      <Name>MeliLibTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
+

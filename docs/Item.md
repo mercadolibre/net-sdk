@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Item
+# MeliLibTools.Model.Item
 ## Properties
 
 Name | Type | Description | Notes

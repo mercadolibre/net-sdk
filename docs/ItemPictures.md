@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.ItemPictures
+# MeliLibTools.Model.ItemPictures
 ## Properties
 
 Name | Type | Description | Notes
