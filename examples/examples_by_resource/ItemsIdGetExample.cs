@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
 
 namespace Example
 {
@@ -16,6 +16,7 @@ namespace Example
             {
                 // Return a Item.
                 apiInstance.ItemsIdGet(id);
+                // To see output in console
                 //Console.Write("Resultado get:" + apiInstance.ItemsIdGetWithHttpInfo(id).Data);
             }
             catch (ApiException e)

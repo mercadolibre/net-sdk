@@ -1,30 +1,30 @@
 using System;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
-    class GetRefreshTokenExample
+    class GetTokenExample
     {
         public static void Mainext(){
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
             var apiInstance = new OAuth20Api(config);
-            var grantType = "refresh_token"; 
+            var grantType = "authorization_code"; 
             var clientId = "appId";  // string 
             var clientSecret = "appSecretKey";  // string 
             var redirectUri = "urlRedirect";  // string 
-            // var code = "code_example"; // in this case code is null
-            var refreshToken = "refresh_token_example";
+            var code = "code_example";
             try
             {
               // Request Access Token
-               Token result = apiInstance.GetToken(grantType, clientId, clientSecret, redirectUri, null, refreshToken);
+               Token result = apiInstance.GetToken(grantType, clientId, clientSecret, redirectUri, code);
                Debug.WriteLine(result);
-                // var refresh = apiInstance.GetTokenWithHttpInfo(grantType, clientId, clientSecret, redirectUri, null, refreshToken);
-                // Console.Write("Resultado get:" + refresh.Data);
+                // To see output in console
+                // var console = apiInstance.GetTokenWithHttpInfo(grantType, clientId, clientSecret, redirectUri, code);
+                // Console.Write("Resultado get:" + console.Data);
             }
             catch (ApiException e)
             {

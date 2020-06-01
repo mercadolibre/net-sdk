@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
@@ -19,6 +19,7 @@ namespace Example
             {
                 // Authentication Endpoint
                 apiInstance.Auth(responseType, clientId, redirectUri);
+                // To see output in console
                 // var getCode = apiInstance.AuthWithHttpInfo(responseType, clientId, redirectUri);
                 // Console.Write("Resultado get:" + getCode);
             }

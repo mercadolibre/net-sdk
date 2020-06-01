@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
@@ -20,7 +20,8 @@ namespace Example
             {
                 // Return health levels.
                 apiInstance.SitesSiteIdHealthLevelsGet(siteId);
-                // Console.Write("Resultado get:" + apiInstance.SitesSiteIdHealthLevelsGetWithHttpInfo("MLA").Data);
+                // To see output in console
+                // Console.Write("Resultado get:" + apiInstance.SitesSiteIdHealthLevelsGetWithHttpInfo(siteId).Data);
             }
             catch (ApiException  e)
             {
