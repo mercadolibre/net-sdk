@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.Token
+# MeliLibTools.Model.Token
 ## Properties
 
 Name | Type | Description | Notes

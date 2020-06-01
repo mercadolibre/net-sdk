@@ -1,4 +1,4 @@
-# Org.OpenAPITools.MeliLibApi.ItemsApi
+# MeliLibTools.MeliLibApi.ItemsApi
 
 All URIs are relative to *https://api.mercadolibre.com*
 
@@ -19,9 +19,9 @@ Return a Item.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
@@ -86,9 +86,9 @@ Update a Item.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {
@@ -160,9 +160,9 @@ Create a Item.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {

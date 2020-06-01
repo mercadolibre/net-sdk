@@ -39,9 +39,9 @@ Generate the DLL using your preferred tool (e.g. `dotnet build`)
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 ```
 <a name="getting-started"></a>
 ## Getting Started
@@ -49,9 +49,9 @@ using Org.OpenAPITools.Model;
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.MeliLibApi;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using MeliLibTools.MeliLibApi;
+using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace Example
 {

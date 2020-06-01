@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.VariationsAttributeCombinations
+# MeliLibTools.Model.VariationsAttributeCombinations
 ## Properties
 
 Name | Type | Description | Notes
