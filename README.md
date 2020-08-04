@@ -82,50 +82,15 @@ namespace Example
 }
 ```
 
-<a name="documentation-for-api-endpoints"></a>
-## Documentation for API Endpoints
+## Documentation & Important notes
 
-All URIs are relative to *https://api.mercadolibre.com*
+##### The URIs are relative to https://api.mercadolibre.com
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*CategoriesApi* | [**CategoriesCategoryIdGet**](docs/CategoriesApi.md#categoriescategoryidget) | **GET** /categories/{category_id} | Return by category.
-*CategoriesApi* | [**SitesSiteIdCategoriesGet**](docs/CategoriesApi.md#sitessiteidcategoriesget) | **GET** /sites/{site_id}/categories | Return a categories by site.
-*CategoriesApi* | [**SitesSiteIdDomainDiscoverySearchGet**](docs/CategoriesApi.md#sitessiteiddomaindiscoverysearchget) | **GET** /sites/{site_id}/domain_discovery/search | Predictor
-*ItemsApi* | [**ItemsIdGet**](docs/ItemsApi.md#itemsidget) | **GET** /items/{id} | Return a Item.
-*ItemsApi* | [**ItemsIdPut**](docs/ItemsApi.md#itemsidput) | **PUT** /items/{id} | Update a Item.
-*ItemsApi* | [**ItemsPost**](docs/ItemsApi.md#itemspost) | **POST** /items | Create a Item.
-*ItemsHealthApi* | [**ItemsIdHealthActionsGet**](docs/ItemsHealthApi.md#itemsidhealthactionsget) | **GET** /items/{id}/health/actions | Return item health actions by id.
-*ItemsHealthApi* | [**ItemsIdHealthGet**](docs/ItemsHealthApi.md#itemsidhealthget) | **GET** /items/{id}/health | Return health by id.
-*ItemsHealthApi* | [**SitesSiteIdHealthLevelsGet**](docs/ItemsHealthApi.md#sitessiteidhealthlevelsget) | **GET** /sites/{site_id}/health_levels | Return health levels.
-*OAuth20Api* | [**Auth**](docs/OAuth20Api.md#auth) | **GET** /authorization | Authentication Endpoint
-*OAuth20Api* | [**GetToken**](docs/OAuth20Api.md#gettoken) | **POST** /oauth/token | Request Access Token
+##### The Authorization URL: https://auth.mercadolibre.com.ar/authorization
 
+#####  All docs for the library are located [here](https://github.com/mercadolibre/ruby-sdk/tree/master/docs)
 
-<a name="documentation-for-models"></a>
-## Documentation for Models
+#####  Check out our examples codes in the folder [examples](https://github.com/mercadolibre/ruby-sdk/tree/master/examples)
 
- - [Model.Attributes](docs/Attributes.md)
- - [Model.AttributesValueStruct](docs/AttributesValueStruct.md)
- - [Model.AttributesValues](docs/AttributesValues.md)
- - [Model.Item](docs/Item.md)
- - [Model.ItemPictures](docs/ItemPictures.md)
- - [Model.Token](docs/Token.md)
- - [Model.Variations](docs/Variations.md)
- - [Model.VariationsAttributeCombinations](docs/VariationsAttributeCombinations.md)
-
-
-<a name="documentation-for-authorization"></a>
-## Documentation for Authorization
-
-<a name="oAuth2AuthCode"></a>
-### oAuth2AuthCode
-
-- **Type**: OAuth
-- **Flow**: accessCode
-- **Authorization URL**: https://auth.mercadolibre.com.ar/authorization
-- **Scopes**: 
-  - read: Grants read access
-  - write: Grants write access
-  - offline_access: Grants read and write access, and adds the possibility to get a refresh token and stay authenticated as the user.
+##### Don’t forget to check out our [developer site](https://developers.mercadolibre.com/)
 
