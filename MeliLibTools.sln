@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliLibTools", "src\MeliLibTools\MeliLibTools.csproj", "{81E8BFBA-1DA8-43F5-9ABF-2A363C4EED45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliLibTools", "src\MeliLibTools\MeliLibTools.csproj", "{A2DA3E0E-B4E4-4784-8800-98DECFD4C091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliLibTools.Test", "src\MeliLibTools.Test\MeliLibTools.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{81E8BFBA-1DA8-43F5-9ABF-2A363C4EED45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81E8BFBA-1DA8-43F5-9ABF-2A363C4EED45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81E8BFBA-1DA8-43F5-9ABF-2A363C4EED45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81E8BFBA-1DA8-43F5-9ABF-2A363C4EED45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2DA3E0E-B4E4-4784-8800-98DECFD4C091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2DA3E0E-B4E4-4784-8800-98DECFD4C091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2DA3E0E-B4E4-4784-8800-98DECFD4C091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2DA3E0E-B4E4-4784-8800-98DECFD4C091}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
