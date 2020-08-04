@@ -81,7 +81,7 @@ No authorization required
 
 <a name="gettoken"></a>
 # **GetToken**
-> Token GetToken (string grantType, string clientId, string clientSecret, string redirectUri, string code = null, string refreshToken = null)
+> void GetToken (string grantType = null, string clientId = null, string clientSecret = null, string redirectUri = null, string code = null, string refreshToken = null)
 
 Request Access Token
 
@@ -104,18 +104,17 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
             var apiInstance = new OAuth20Api(config);
-            var grantType = grantType_example;  // string | Value MUST be set to \"authorization_code\" (default to authorization_code)
-            var clientId = clientId_example;  // string | 
-            var clientSecret = clientSecret_example;  // string | 
-            var redirectUri = redirectUri_example;  // string | 
-            var code = code_example;  // string | The code received in the query string when redirected from authorization page  (optional) 
-            var refreshToken = refreshToken_example;  // string | The refresh_token received in the query string when redirected from authorization page  (optional) 
+            var grantType = grantType_example;  // string |  (optional) 
+            var clientId = clientId_example;  // string |  (optional) 
+            var clientSecret = clientSecret_example;  // string |  (optional) 
+            var redirectUri = redirectUri_example;  // string |  (optional) 
+            var code = code_example;  // string |  (optional) 
+            var refreshToken = refreshToken_example;  // string |  (optional) 
 
             try
             {
                 // Request Access Token
-                Token result = apiInstance.GetToken(grantType, clientId, clientSecret, redirectUri, code, refreshToken);
-                Debug.WriteLine(result);
+                apiInstance.GetToken(grantType, clientId, clientSecret, redirectUri, code, refreshToken);
             }
             catch (ApiException  e)
             {
@@ -132,16 +131,16 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantType** | **string**| Value MUST be set to \&quot;authorization_code\&quot; | [default to authorization_code]
- **clientId** | **string**|  | 
- **clientSecret** | **string**|  | 
- **redirectUri** | **string**|  | 
- **code** | **string**| The code received in the query string when redirected from authorization page  | [optional] 
- **refreshToken** | **string**| The refresh_token received in the query string when redirected from authorization page  | [optional] 
+ **grantType** | **string**|  | [optional] 
+ **clientId** | **string**|  | [optional] 
+ **clientSecret** | **string**|  | [optional] 
+ **redirectUri** | **string**|  | [optional] 
+ **code** | **string**|  | [optional] 
+ **refreshToken** | **string**|  | [optional] 
 
 ### Return type
 
-[**Token**](Token.md)
+void (empty response body)
 
 ### Authorization
 
@@ -149,8 +148,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |

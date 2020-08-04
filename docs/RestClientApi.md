@@ -1,19 +1,19 @@
-# MeliLibTools.MeliLibApi.ItemsApi
+# MeliLibTools.MeliLibApi.RestClientApi
 
 All URIs are relative to *https://api.mercadolibre.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ItemsIdGet**](ItemsApi.md#itemsidget) | **GET** /items/{id} | Return a Item.
-[**ItemsIdPut**](ItemsApi.md#itemsidput) | **PUT** /items/{id} | Update a Item.
-[**ItemsPost**](ItemsApi.md#itemspost) | **POST** /items | Create a Item.
+[**ResourceGet**](RestClientApi.md#resourceget) | **GET** /{resource} | Resource path GET
+[**ResourcePost**](RestClientApi.md#resourcepost) | **POST** /{resource} | Resourse path POST
+[**ResourcePut**](RestClientApi.md#resourceput) | **PUT** /{resource} | Resourse path PUT
 
 
-<a name="itemsidget"></a>
-# **ItemsIdGet**
-> void ItemsIdGet (string id)
+<a name="resourceget"></a>
+# **ResourceGet**
+> void ResourceGet (string resource, string accessToken)
 
-Return a Item.
+Resource path GET
 
 ### Example
 ```csharp
@@ -25,23 +25,24 @@ using MeliLibTools.Model;
 
 namespace Example
 {
-    public class ItemsIdGetExample
+    public class ResourceGetExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new ItemsApi(config);
-            var id = id_example;  // string | 
+            var apiInstance = new RestClientApi(config);
+            var resource = resource_example;  // string | 
+            var accessToken = accessToken_example;  // string | 
 
             try
             {
-                // Return a Item.
-                apiInstance.ItemsIdGet(id);
+                // Resource path GET
+                apiInstance.ResourceGet(resource, accessToken);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ItemsApi.ItemsIdGet: " + e.Message );
+                Debug.Print("Exception when calling RestClientApi.ResourceGet: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -54,7 +55,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **resource** | **string**|  | 
+ **accessToken** | **string**|  | 
 
 ### Return type
 
@@ -76,11 +78,11 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="itemsidput"></a>
-# **ItemsIdPut**
-> void ItemsIdPut (string id, string accessToken, Item item)
+<a name="resourcepost"></a>
+# **ResourcePost**
+> void ResourcePost (string resource, string accessToken, Object body)
 
-Update a Item.
+Resourse path POST
 
 ### Example
 ```csharp
@@ -92,25 +94,25 @@ using MeliLibTools.Model;
 
 namespace Example
 {
-    public class ItemsIdPutExample
+    public class ResourcePostExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new ItemsApi(config);
-            var id = id_example;  // string | 
+            var apiInstance = new RestClientApi(config);
+            var resource = resource_example;  // string | 
             var accessToken = accessToken_example;  // string | 
-            var item = new Item(); // Item | 
+            var body = ;  // Object | 
 
             try
             {
-                // Update a Item.
-                apiInstance.ItemsIdPut(id, accessToken, item);
+                // Resourse path POST
+                apiInstance.ResourcePost(resource, accessToken, body);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ItemsApi.ItemsIdPut: " + e.Message );
+                Debug.Print("Exception when calling RestClientApi.ResourcePost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -123,9 +125,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**|  | 
+ **resource** | **string**|  | 
  **accessToken** | **string**|  | 
- **item** | [**Item**](Item.md)|  | 
+ **body** | **Object**|  | 
 
 ### Return type
 
@@ -143,15 +145,15 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Ok |  -  |
+| **200** | Ok |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="itemspost"></a>
-# **ItemsPost**
-> void ItemsPost (string accessToken, Item item)
+<a name="resourceput"></a>
+# **ResourcePut**
+> void ResourcePut (string resource, string accessToken, Object body)
 
-Create a Item.
+Resourse path PUT
 
 ### Example
 ```csharp
@@ -163,24 +165,25 @@ using MeliLibTools.Model;
 
 namespace Example
 {
-    public class ItemsPostExample
+    public class ResourcePutExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api.mercadolibre.com";
-            var apiInstance = new ItemsApi(config);
+            var apiInstance = new RestClientApi(config);
+            var resource = resource_example;  // string | 
             var accessToken = accessToken_example;  // string | 
-            var item = new Item(); // Item | 
+            var body = ;  // Object | 
 
             try
             {
-                // Create a Item.
-                apiInstance.ItemsPost(accessToken, item);
+                // Resourse path PUT
+                apiInstance.ResourcePut(resource, accessToken, body);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ItemsApi.ItemsPost: " + e.Message );
+                Debug.Print("Exception when calling RestClientApi.ResourcePut: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -193,8 +196,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **resource** | **string**|  | 
  **accessToken** | **string**|  | 
- **item** | [**Item**](Item.md)|  | 
+ **body** | **Object**|  | 
 
 ### Return type
 
@@ -212,7 +216,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Ok |  -  |
+| **200** | Ok |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

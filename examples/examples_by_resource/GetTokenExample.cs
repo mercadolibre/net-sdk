@@ -19,12 +19,9 @@ namespace Example
             var code = "code_example";
             try
             {
-              // Request Access Token
-               Token result = apiInstance.GetToken(grantType, clientId, clientSecret, redirectUri, code);
-               Debug.WriteLine(result);
-                // To see output in console
-                // var console = apiInstance.GetTokenWithHttpInfo(grantType, clientId, clientSecret, redirectUri, code);
-                // Console.Write("Resultado get:" + console.Data);
+                // Request Access Token - To see output in console
+                var console = apiInstance.GetTokenWithHttpInfo(grantType, clientId, clientSecret, redirectUri, code);
+                Console.Write("Resultado get:" + console.Data);
             }
             catch (ApiException e)
             {

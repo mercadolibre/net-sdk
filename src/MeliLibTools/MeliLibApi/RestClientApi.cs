@@ -23,159 +23,171 @@ namespace MeliLibTools.MeliLibApi
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICategoriesApiSync : IApiAccessor
+    public interface IRestClientApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Return by category.
+        /// Resource path GET
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns></returns>
-        void CategoriesCategoryIdGet (string categoryId);
+        void ResourceGet (string resource, string accessToken);
 
         /// <summary>
-        /// Return by category.
+        /// Resource path GET
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CategoriesCategoryIdGetWithHttpInfo (string categoryId);
+        ApiResponse<Object> ResourceGetWithHttpInfo (string resource, string accessToken);
         /// <summary>
-        /// Return a categories by site.
+        /// Resourse path POST
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns></returns>
-        void SitesSiteIdCategoriesGet (string siteId);
+        void ResourcePost (string resource, string accessToken, Object body);
 
         /// <summary>
-        /// Return a categories by site.
+        /// Resourse path POST
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SitesSiteIdCategoriesGetWithHttpInfo (string siteId);
+        ApiResponse<Object> ResourcePostWithHttpInfo (string resource, string accessToken, Object body);
         /// <summary>
-        /// Predictor
+        /// Resourse path PUT
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns></returns>
-        void SitesSiteIdDomainDiscoverySearchGet (string siteId, string q, string limit);
+        void ResourcePut (string resource, string accessToken, Object body);
 
         /// <summary>
-        /// Predictor
+        /// Resourse path PUT
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SitesSiteIdDomainDiscoverySearchGetWithHttpInfo (string siteId, string q, string limit);
+        ApiResponse<Object> ResourcePutWithHttpInfo (string resource, string accessToken, Object body);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICategoriesApiAsync : IApiAccessor
+    public interface IRestClientApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Return by category.
+        /// Resource path GET
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CategoriesCategoryIdGetAsync (string categoryId);
+        System.Threading.Tasks.Task ResourceGetAsync (string resource, string accessToken);
 
         /// <summary>
-        /// Return by category.
+        /// Resource path GET
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CategoriesCategoryIdGetAsyncWithHttpInfo (string categoryId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResourceGetAsyncWithHttpInfo (string resource, string accessToken);
         /// <summary>
-        /// Return a categories by site.
+        /// Resourse path POST
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SitesSiteIdCategoriesGetAsync (string siteId);
+        System.Threading.Tasks.Task ResourcePostAsync (string resource, string accessToken, Object body);
 
         /// <summary>
-        /// Return a categories by site.
+        /// Resourse path POST
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SitesSiteIdCategoriesGetAsyncWithHttpInfo (string siteId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResourcePostAsyncWithHttpInfo (string resource, string accessToken, Object body);
         /// <summary>
-        /// Predictor
+        /// Resourse path PUT
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SitesSiteIdDomainDiscoverySearchGetAsync (string siteId, string q, string limit);
+        System.Threading.Tasks.Task ResourcePutAsync (string resource, string accessToken, Object body);
 
         /// <summary>
-        /// Predictor
+        /// Resourse path PUT
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo (string siteId, string q, string limit);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResourcePutAsyncWithHttpInfo (string resource, string accessToken, Object body);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICategoriesApi : ICategoriesApiSync, ICategoriesApiAsync
+    public interface IRestClientApi : IRestClientApiSync, IRestClientApiAsync
     {
 
     }
@@ -183,23 +195,23 @@ namespace MeliLibTools.MeliLibApi
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class CategoriesApi : ICategoriesApi
+    public partial class RestClientApi : IRestClientApi
     {
         private MeliLibTools.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CategoriesApi"/> class.
+        /// Initializes a new instance of the <see cref="RestClientApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CategoriesApi() : this((string) null)
+        public RestClientApi() : this((string) null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CategoriesApi"/> class.
+        /// Initializes a new instance of the <see cref="RestClientApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CategoriesApi(String basePath)
+        public RestClientApi(String basePath)
         {
             this.Configuration = MeliLibTools.Client.Configuration.MergeConfigurations(
                 MeliLibTools.Client.GlobalConfiguration.Instance,
@@ -211,12 +223,12 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CategoriesApi"/> class
+        /// Initializes a new instance of the <see cref="RestClientApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CategoriesApi(MeliLibTools.Client.Configuration configuration)
+        public RestClientApi(MeliLibTools.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -230,13 +242,13 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CategoriesApi"/> class
+        /// Initializes a new instance of the <see cref="RestClientApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public CategoriesApi(MeliLibTools.Client.ISynchronousClient client,MeliLibTools.Client.IAsynchronousClient asyncClient, MeliLibTools.Client.IReadableConfiguration configuration)
+        public RestClientApi(MeliLibTools.Client.ISynchronousClient client,MeliLibTools.Client.IAsynchronousClient asyncClient, MeliLibTools.Client.IReadableConfiguration configuration)
         {
             if(client == null) throw new ArgumentNullException("client");
             if(asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -290,27 +302,33 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Return by category. 
+        /// Resource path GET 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns></returns>
-        public void CategoriesCategoryIdGet (string categoryId)
+        public void ResourceGet (string resource, string accessToken)
         {
-             CategoriesCategoryIdGetWithHttpInfo(categoryId);
+             ResourceGetWithHttpInfo(resource, accessToken);
         }
 
         /// <summary>
-        /// Return by category. 
+        /// Resource path GET 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> CategoriesCategoryIdGetWithHttpInfo (string categoryId)
+        public MeliLibTools.Client.ApiResponse<Object> ResourceGetWithHttpInfo (string resource, string accessToken)
         {
-            // verify the required parameter 'categoryId' is set
-            if (categoryId == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'categoryId' when calling CategoriesApi->CategoriesCategoryIdGet");
+            // verify the required parameter 'resource' is set
+            if (resource == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourceGet");
+
+            // verify the required parameter 'accessToken' is set
+            if (accessToken == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourceGet");
 
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
 
@@ -327,15 +345,16 @@ namespace MeliLibTools.MeliLibApi
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("category_id", MeliLibTools.Client.ClientUtils.ParameterToString(categoryId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/categories/{category_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Object>("/{resource}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CategoriesCategoryIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResourceGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -343,28 +362,34 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Return by category. 
+        /// Resource path GET 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CategoriesCategoryIdGetAsync (string categoryId)
+        public async System.Threading.Tasks.Task ResourceGetAsync (string resource, string accessToken)
         {
-             await CategoriesCategoryIdGetAsyncWithHttpInfo(categoryId);
+             await ResourceGetAsyncWithHttpInfo(resource, accessToken);
 
         }
 
         /// <summary>
-        /// Return by category. 
+        /// Resource path GET 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoryId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> CategoriesCategoryIdGetAsyncWithHttpInfo (string categoryId)
+        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourceGetAsyncWithHttpInfo (string resource, string accessToken)
         {
-            // verify the required parameter 'categoryId' is set
-            if (categoryId == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'categoryId' when calling CategoriesApi->CategoriesCategoryIdGet");
+            // verify the required parameter 'resource' is set
+            if (resource == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourceGet");
+
+            // verify the required parameter 'accessToken' is set
+            if (accessToken == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourceGet");
 
 
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
@@ -382,16 +407,17 @@ namespace MeliLibTools.MeliLibApi
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.PathParameters.Add("category_id", MeliLibTools.Client.ClientUtils.ParameterToString(categoryId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/categories/{category_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/{resource}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CategoriesCategoryIdGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResourceGet", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -399,31 +425,44 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Return a categories by site. 
+        /// Resourse path POST 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns></returns>
-        public void SitesSiteIdCategoriesGet (string siteId)
+        public void ResourcePost (string resource, string accessToken, Object body)
         {
-             SitesSiteIdCategoriesGetWithHttpInfo(siteId);
+             ResourcePostWithHttpInfo(resource, accessToken, body);
         }
 
         /// <summary>
-        /// Return a categories by site. 
+        /// Resourse path POST 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> SitesSiteIdCategoriesGetWithHttpInfo (string siteId)
+        public MeliLibTools.Client.ApiResponse<Object> ResourcePostWithHttpInfo (string resource, string accessToken, Object body)
         {
-            // verify the required parameter 'siteId' is set
-            if (siteId == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'siteId' when calling CategoriesApi->SitesSiteIdCategoriesGet");
+            // verify the required parameter 'resource' is set
+            if (resource == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePost");
+
+            // verify the required parameter 'accessToken' is set
+            if (accessToken == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePost");
+
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePost");
 
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -436,15 +475,17 @@ namespace MeliLibTools.MeliLibApi
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("site_id", MeliLibTools.Client.ClientUtils.ParameterToString(siteId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.Data = body;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/sites/{site_id}/categories", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Object>("/{resource}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SitesSiteIdCategoriesGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResourcePost", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -452,33 +493,46 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Return a categories by site. 
+        /// Resourse path POST 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SitesSiteIdCategoriesGetAsync (string siteId)
+        public async System.Threading.Tasks.Task ResourcePostAsync (string resource, string accessToken, Object body)
         {
-             await SitesSiteIdCategoriesGetAsyncWithHttpInfo(siteId);
+             await ResourcePostAsyncWithHttpInfo(resource, accessToken, body);
 
         }
 
         /// <summary>
-        /// Return a categories by site. 
+        /// Resourse path POST 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> SitesSiteIdCategoriesGetAsyncWithHttpInfo (string siteId)
+        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourcePostAsyncWithHttpInfo (string resource, string accessToken, Object body)
         {
-            // verify the required parameter 'siteId' is set
-            if (siteId == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'siteId' when calling CategoriesApi->SitesSiteIdCategoriesGet");
+            // verify the required parameter 'resource' is set
+            if (resource == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePost");
+
+            // verify the required parameter 'accessToken' is set
+            if (accessToken == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePost");
+
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePost");
 
 
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -491,16 +545,18 @@ namespace MeliLibTools.MeliLibApi
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.PathParameters.Add("site_id", MeliLibTools.Client.ClientUtils.ParameterToString(siteId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.Data = body;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/sites/{site_id}/categories", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/{resource}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SitesSiteIdCategoriesGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResourcePost", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -508,43 +564,44 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Predictor 
+        /// Resourse path PUT 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns></returns>
-        public void SitesSiteIdDomainDiscoverySearchGet (string siteId, string q, string limit)
+        public void ResourcePut (string resource, string accessToken, Object body)
         {
-             SitesSiteIdDomainDiscoverySearchGetWithHttpInfo(siteId, q, limit);
+             ResourcePutWithHttpInfo(resource, accessToken, body);
         }
 
         /// <summary>
-        /// Predictor 
+        /// Resourse path PUT 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> SitesSiteIdDomainDiscoverySearchGetWithHttpInfo (string siteId, string q, string limit)
+        public MeliLibTools.Client.ApiResponse<Object> ResourcePutWithHttpInfo (string resource, string accessToken, Object body)
         {
-            // verify the required parameter 'siteId' is set
-            if (siteId == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'siteId' when calling CategoriesApi->SitesSiteIdDomainDiscoverySearchGet");
+            // verify the required parameter 'resource' is set
+            if (resource == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePut");
 
-            // verify the required parameter 'q' is set
-            if (q == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'q' when calling CategoriesApi->SitesSiteIdDomainDiscoverySearchGet");
+            // verify the required parameter 'accessToken' is set
+            if (accessToken == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePut");
 
-            // verify the required parameter 'limit' is set
-            if (limit == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'limit' when calling CategoriesApi->SitesSiteIdDomainDiscoverySearchGet");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePut");
 
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -557,17 +614,17 @@ namespace MeliLibTools.MeliLibApi
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("site_id", MeliLibTools.Client.ClientUtils.ParameterToString(siteId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "q", q));
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.Data = body;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/sites/{site_id}/domain_discovery/search", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Object>("/{resource}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SitesSiteIdDomainDiscoverySearchGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResourcePut", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -575,45 +632,46 @@ namespace MeliLibTools.MeliLibApi
         }
 
         /// <summary>
-        /// Predictor 
+        /// Resourse path PUT 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SitesSiteIdDomainDiscoverySearchGetAsync (string siteId, string q, string limit)
+        public async System.Threading.Tasks.Task ResourcePutAsync (string resource, string accessToken, Object body)
         {
-             await SitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo(siteId, q, limit);
+             await ResourcePutAsyncWithHttpInfo(resource, accessToken, body);
 
         }
 
         /// <summary>
-        /// Predictor 
+        /// Resourse path PUT 
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="siteId"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
+        /// <param name="resource"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> SitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo (string siteId, string q, string limit)
+        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourcePutAsyncWithHttpInfo (string resource, string accessToken, Object body)
         {
-            // verify the required parameter 'siteId' is set
-            if (siteId == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'siteId' when calling CategoriesApi->SitesSiteIdDomainDiscoverySearchGet");
+            // verify the required parameter 'resource' is set
+            if (resource == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePut");
 
-            // verify the required parameter 'q' is set
-            if (q == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'q' when calling CategoriesApi->SitesSiteIdDomainDiscoverySearchGet");
+            // verify the required parameter 'accessToken' is set
+            if (accessToken == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePut");
 
-            // verify the required parameter 'limit' is set
-            if (limit == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'limit' when calling CategoriesApi->SitesSiteIdDomainDiscoverySearchGet");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePut");
 
 
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -626,18 +684,18 @@ namespace MeliLibTools.MeliLibApi
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.PathParameters.Add("site_id", MeliLibTools.Client.ClientUtils.ParameterToString(siteId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "q", q));
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.Data = body;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/sites/{site_id}/domain_discovery/search", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/{resource}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("SitesSiteIdDomainDiscoverySearchGet", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResourcePut", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
