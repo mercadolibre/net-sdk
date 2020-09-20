@@ -16,6 +16,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using MeliLibTools.Client;
+using MeliLibTools.Model;
 
 namespace MeliLibTools.MeliLibApi
 {
@@ -64,8 +65,8 @@ namespace MeliLibTools.MeliLibApi
         /// <param name="redirectUri"> (optional)</param>
         /// <param name="code"> (optional)</param>
         /// <param name="refreshToken"> (optional)</param>
-        /// <returns></returns>
-        void GetToken (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string));
+        /// <returns>Token</returns>
+        Token GetToken (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string));
 
         /// <summary>
         /// Request Access Token
@@ -80,8 +81,8 @@ namespace MeliLibTools.MeliLibApi
         /// <param name="redirectUri"> (optional)</param>
         /// <param name="code"> (optional)</param>
         /// <param name="refreshToken"> (optional)</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetTokenWithHttpInfo (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string));
+        /// <returns>Token</returns>
+        ApiResponse<Token> GetTokenWithHttpInfo (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string));
         #endregion Synchronous Operations
     }
 
@@ -415,9 +416,9 @@ namespace MeliLibTools.MeliLibApi
         /// <param name="code"> (optional)</param>
         /// <param name="refreshToken"> (optional)</param>
         /// <returns></returns>
-        public void GetToken (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string))
+        public Token GetToken (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string))
         {
-             GetTokenWithHttpInfo(grantType, clientId, clientSecret, redirectUri, code, refreshToken);
+            return GetTokenWithHttpInfo(grantType, clientId, clientSecret, redirectUri, code, refreshToken).Data;
         }
 
         /// <summary>
@@ -431,7 +432,7 @@ namespace MeliLibTools.MeliLibApi
         /// <param name="code"> (optional)</param>
         /// <param name="refreshToken"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> GetTokenWithHttpInfo (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string))
+        public MeliLibTools.Client.ApiResponse<Token> GetTokenWithHttpInfo (string grantType = default(string), string clientId = default(string), string clientSecret = default(string), string redirectUri = default(string), string code = default(string), string refreshToken = default(string))
         {
             MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
 
@@ -476,7 +477,7 @@ namespace MeliLibTools.MeliLibApi
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/oauth/token", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Token>("/oauth/token", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
