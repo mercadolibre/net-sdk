@@ -348,8 +348,8 @@ namespace MeliLibTools.Client
         {
             T result = response.Data;
             string rawContent = response.Content;
-
-            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
+            byte[] rawBytes = response.RawBytes;
+            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent, rawBytes)
             {
                 ErrorText = response.ErrorMessage,
                 Cookies = new List<Cookie>()
