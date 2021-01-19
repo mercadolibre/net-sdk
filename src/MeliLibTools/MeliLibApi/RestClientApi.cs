@@ -344,7 +344,7 @@ namespace MeliLibTools.MeliLibApi
             if (localVarAccept != null) requestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            requestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", this.Configuration.AccessToken));
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
 
 
             // make the HTTP request
@@ -402,7 +402,7 @@ namespace MeliLibTools.MeliLibApi
             foreach (var _accept in _accepts)
                 requestOptions.HeaderParameters.Add("Accept", _accept);
             
-            requestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", this.Configuration.AccessToken));
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<Object>(resource, requestOptions, this.Configuration);
@@ -465,7 +465,7 @@ namespace MeliLibTools.MeliLibApi
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) requestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            requestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", this.Configuration.AccessToken));
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
             requestOptions.Data = body;
 
 
@@ -532,7 +532,7 @@ namespace MeliLibTools.MeliLibApi
             foreach (var _accept in _accepts)
                 requestOptions.HeaderParameters.Add("Accept", _accept);
             
-            requestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", this.Configuration.AccessToken));
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
             requestOptions.Data = body;
 
 
@@ -598,7 +598,7 @@ namespace MeliLibTools.MeliLibApi
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) requestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            requestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", this.Configuration.AccessToken));
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
             requestOptions.Data = body;
 
 
@@ -664,7 +664,8 @@ namespace MeliLibTools.MeliLibApi
             foreach (var _accept in _accepts)
                 requestOptions.HeaderParameters.Add("Accept", _accept);
 
-            requestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", this.Configuration.AccessToken));
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
+            //requestOptions
             requestOptions.Data = body;
 
 

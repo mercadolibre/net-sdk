@@ -334,7 +334,7 @@ namespace MeliLibTools.MeliLibApi
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", MeliLibTools.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {accessToken}"));
 
 
             // make the HTTP request
@@ -396,7 +396,7 @@ namespace MeliLibTools.MeliLibApi
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
             localVarRequestOptions.PathParameters.Add("id", MeliLibTools.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {accessToken}"));
 
 
             // make the HTTP request
@@ -457,7 +457,7 @@ namespace MeliLibTools.MeliLibApi
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", MeliLibTools.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {accessToken}"));
 
 
             // make the HTTP request
@@ -519,7 +519,7 @@ namespace MeliLibTools.MeliLibApi
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
             localVarRequestOptions.PathParameters.Add("id", MeliLibTools.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+            localVarRequestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {accessToken}"));
 
 
             // make the HTTP request
