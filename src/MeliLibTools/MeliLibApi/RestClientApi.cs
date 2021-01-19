@@ -9,6 +9,7 @@
  */
 
 
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -34,9 +35,9 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns></returns>
-        void ResourceGet (string resource, string accessToken);
+        void ResourceGet (string resource, RequestOptions requestOptions = null);
 
         /// <summary>
         /// Resource path GET
@@ -46,9 +47,9 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ResourceGetWithHttpInfo (string resource, string accessToken);
+        ApiResponse<Object> ResourceGetWithHttpInfo (string resource, RequestOptions requestOptions = null);
         /// <summary>
         /// Resourse path POST
         /// </summary>
@@ -57,10 +58,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns></returns>
-        void ResourcePost (string resource, string accessToken, Object body);
+        void ResourcePost (string resource, Object body, RequestOptions requestOptions = null);
 
         /// <summary>
         /// Resourse path POST
@@ -69,11 +70,11 @@ namespace MeliLibTools.MeliLibApi
         /// 
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="resource"></param>        
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ResourcePostWithHttpInfo (string resource, string accessToken, Object body);
+        ApiResponse<Object> ResourcePostWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null);
         /// <summary>
         /// Resourse path PUT
         /// </summary>
@@ -82,10 +83,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns></returns>
-        void ResourcePut (string resource, string accessToken, Object body);
+        void ResourcePut (string resource, Object body, RequestOptions requestOptions = null);
 
         /// <summary>
         /// Resourse path PUT
@@ -95,10 +96,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ResourcePutWithHttpInfo (string resource, string accessToken, Object body);
+        ApiResponse<Object> ResourcePutWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null);
         #endregion Synchronous Operations
     }
 
@@ -116,9 +117,9 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ResourceGetAsync (string resource, string accessToken);
+        System.Threading.Tasks.Task ResourceGetAsync (string resource, RequestOptions requestOptions = null);
 
         /// <summary>
         /// Resource path GET
@@ -128,9 +129,9 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ResourceGetAsyncWithHttpInfo (string resource, string accessToken);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResourceGetAsyncWithHttpInfo (string resource, RequestOptions requestOptions = null);
         /// <summary>
         /// Resourse path POST
         /// </summary>
@@ -139,10 +140,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ResourcePostAsync (string resource, string accessToken, Object body);
+        System.Threading.Tasks.Task ResourcePostAsync (string resource, Object body, RequestOptions requestOptions = null);
 
         /// <summary>
         /// Resourse path POST
@@ -152,10 +153,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ResourcePostAsyncWithHttpInfo (string resource, string accessToken, Object body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResourcePostAsyncWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null);
         /// <summary>
         /// Resourse path PUT
         /// </summary>
@@ -164,10 +165,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ResourcePutAsync (string resource, string accessToken, Object body);
+        System.Threading.Tasks.Task ResourcePutAsync (string resource, Object body, RequestOptions requestOptions = null);
 
         /// <summary>
         /// Resourse path PUT
@@ -177,10 +178,10 @@ namespace MeliLibTools.MeliLibApi
         /// </remarks>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ResourcePutAsyncWithHttpInfo (string resource, string accessToken, Object body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResourcePutAsyncWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null);
         #endregion Asynchronous Operations
     }
 
@@ -306,11 +307,11 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns></returns>
-        public void ResourceGet (string resource, string accessToken)
+        public void ResourceGet (string resource, RequestOptions requestOptions)
         {
-             ResourceGetWithHttpInfo(resource, accessToken);
+             ResourceGetWithHttpInfo(resource, requestOptions);
         }
 
         /// <summary>
@@ -318,19 +319,16 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> ResourceGetWithHttpInfo (string resource, string accessToken)
+        public MeliLibTools.Client.ApiResponse<Object> ResourceGetWithHttpInfo (string resource, RequestOptions requestOptions = null)
         {
             // verify the required parameter 'resource' is set
             if (resource == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourceGet");
 
-            // verify the required parameter 'accessToken' is set
-            if (accessToken == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourceGet");
-
-            MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
+            if (requestOptions == null)
+                requestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
             };
@@ -340,17 +338,17 @@ namespace MeliLibTools.MeliLibApi
             };
 
             var localVarContentType = MeliLibTools.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null) requestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null) requestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
+
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/{resource}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Object>(resource, requestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -366,11 +364,11 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ResourceGetAsync (string resource, string accessToken)
+        public async System.Threading.Tasks.Task ResourceGetAsync (string resource, RequestOptions requestOptions = null)
         {
-             await ResourceGetAsyncWithHttpInfo(resource, accessToken);
+             await ResourceGetAsyncWithHttpInfo(resource, requestOptions);
 
         }
 
@@ -379,21 +377,18 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourceGetAsyncWithHttpInfo (string resource, string accessToken)
+        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourceGetAsyncWithHttpInfo (string resource, RequestOptions requestOptions = null)
         {
             // verify the required parameter 'resource' is set
             if (resource == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourceGet");
 
-            // verify the required parameter 'accessToken' is set
-            if (accessToken == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourceGet");
+            if (requestOptions == null)
+                requestOptions = new RequestOptions();
 
-
-            MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
-
+            
             String[] _contentTypes = new String[] {
             };
 
@@ -402,18 +397,15 @@ namespace MeliLibTools.MeliLibApi
             };
             
             foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+                requestOptions.HeaderParameters.Add("Content-Type", _contentType);
             
             foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+                requestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
-
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
 
             // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/{resource}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>(resource, requestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -429,12 +421,12 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns></returns>
-        public void ResourcePost (string resource, string accessToken, Object body)
+        public void ResourcePost (string resource, Object body, RequestOptions requestOptions = null)
         {
-             ResourcePostWithHttpInfo(resource, accessToken, body);
+             ResourcePostWithHttpInfo(resource, body, requestOptions);
         }
 
         /// <summary>
@@ -442,24 +434,22 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> ResourcePostWithHttpInfo (string resource, string accessToken, Object body)
+        public MeliLibTools.Client.ApiResponse<Object> ResourcePostWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null)
         {
             // verify the required parameter 'resource' is set
             if (resource == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePost");
 
-            // verify the required parameter 'accessToken' is set
-            if (accessToken == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePost");
-
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePost");
 
-            MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
+
+            if (requestOptions == null)
+                requestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
                 "application/json"
@@ -470,18 +460,17 @@ namespace MeliLibTools.MeliLibApi
             };
 
             var localVarContentType = MeliLibTools.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null) requestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null) requestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
-            localVarRequestOptions.Data = body;
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
+            requestOptions.Data = body;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/{resource}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<Object>(resource, requestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -497,12 +486,12 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ResourcePostAsync (string resource, string accessToken, Object body)
+        public async System.Threading.Tasks.Task ResourcePostAsync (string resource, Object body, RequestOptions requestOptions = null)
         {
-             await ResourcePostAsyncWithHttpInfo(resource, accessToken, body);
+             await ResourcePostAsyncWithHttpInfo(resource, body, requestOptions);
 
         }
 
@@ -511,25 +500,23 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
         /// <param name="body"></param>
+        /// <param name="requestOptions"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourcePostAsyncWithHttpInfo (string resource, string accessToken, Object body)
+        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourcePostAsyncWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null)
         {
             // verify the required parameter 'resource' is set
             if (resource == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePost");
-
-            // verify the required parameter 'accessToken' is set
-            if (accessToken == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePost");
 
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePost");
 
 
-            MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
+            if (requestOptions == null)
+                requestOptions = new RequestOptions();
+            
 
             String[] _contentTypes = new String[] {
                 "application/json"
@@ -540,19 +527,18 @@ namespace MeliLibTools.MeliLibApi
             };
             
             foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+                requestOptions.HeaderParameters.Add("Content-Type", _contentType);
             
             foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+                requestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
-            localVarRequestOptions.Data = body;
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
+            requestOptions.Data = body;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/{resource}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>(resource, requestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -568,12 +554,12 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns></returns>
-        public void ResourcePut (string resource, string accessToken, Object body)
+        public void ResourcePut (string resource, Object body, RequestOptions requestOptions = null)
         {
-             ResourcePutWithHttpInfo(resource, accessToken, body);
+             ResourcePutWithHttpInfo(resource, body, requestOptions);
         }
 
         /// <summary>
@@ -581,24 +567,22 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public MeliLibTools.Client.ApiResponse<Object> ResourcePutWithHttpInfo (string resource, string accessToken, Object body)
+        public MeliLibTools.Client.ApiResponse<Object> ResourcePutWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null)
         {
             // verify the required parameter 'resource' is set
             if (resource == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePut");
-
-            // verify the required parameter 'accessToken' is set
-            if (accessToken == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePut");
-
+            
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePut");
 
-            MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
+
+            if (requestOptions == null)
+                requestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
                 "application/json"
@@ -609,18 +593,17 @@ namespace MeliLibTools.MeliLibApi
             };
 
             var localVarContentType = MeliLibTools.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            if (localVarContentType != null) requestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
             var localVarAccept = MeliLibTools.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            if (localVarAccept != null) requestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
-            localVarRequestOptions.Data = body;
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
+            requestOptions.Data = body;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/{resource}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Object>(resource, requestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -636,12 +619,12 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ResourcePutAsync (string resource, string accessToken, Object body)
+        public async System.Threading.Tasks.Task ResourcePutAsync (string resource, Object body, RequestOptions requestOptions = null)
         {
-             await ResourcePutAsyncWithHttpInfo(resource, accessToken, body);
+             await ResourcePutAsyncWithHttpInfo(resource, body, requestOptions);
 
         }
 
@@ -650,25 +633,22 @@ namespace MeliLibTools.MeliLibApi
         /// </summary>
         /// <exception cref="MeliLibTools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resource"></param>
-        /// <param name="accessToken"></param>
+        /// <param name="requestOptions"></param>
         /// <param name="body"></param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourcePutAsyncWithHttpInfo (string resource, string accessToken, Object body)
+        public async System.Threading.Tasks.Task<MeliLibTools.Client.ApiResponse<Object>> ResourcePutAsyncWithHttpInfo (string resource, Object body, RequestOptions requestOptions = null)
         {
             // verify the required parameter 'resource' is set
             if (resource == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'resource' when calling RestClientApi->ResourcePut");
-
-            // verify the required parameter 'accessToken' is set
-            if (accessToken == null)
-                throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'accessToken' when calling RestClientApi->ResourcePut");
 
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new MeliLibTools.Client.ApiException(400, "Missing required parameter 'body' when calling RestClientApi->ResourcePut");
 
 
-            MeliLibTools.Client.RequestOptions localVarRequestOptions = new MeliLibTools.Client.RequestOptions();
+            if (requestOptions == null)
+                requestOptions = new RequestOptions();
 
             String[] _contentTypes = new String[] {
                 "application/json"
@@ -679,19 +659,19 @@ namespace MeliLibTools.MeliLibApi
             };
             
             foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+                requestOptions.HeaderParameters.Add("Content-Type", _contentType);
             
             foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            localVarRequestOptions.PathParameters.Add("resource", MeliLibTools.Client.ClientUtils.ParameterToString(resource)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "access_token", accessToken));
-            localVarRequestOptions.Data = body;
+                requestOptions.HeaderParameters.Add("Accept", _accept);
+
+            requestOptions.HeaderParameters.Add(MeliLibTools.Client.ClientUtils.ParameterToMultiMap("", "Authorization", $"Bearer {this.Configuration.AccessToken}"));
+            //requestOptions
+            requestOptions.Data = body;
 
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/{resource}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>(resource, requestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

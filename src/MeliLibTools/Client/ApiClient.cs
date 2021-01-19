@@ -348,8 +348,8 @@ namespace MeliLibTools.Client
         {
             T result = response.Data;
             string rawContent = response.Content;
-
-            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
+            byte[] rawBytes = response.RawBytes;
+            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent, rawBytes)
             {
                 ErrorText = response.ErrorMessage,
                 Cookies = new List<Cookie>()
@@ -380,6 +380,12 @@ namespace MeliLibTools.Client
             return transformed;
         }
 
+        private void AddHandlerHelper(RestClient client, IDeserializer deserializerFactory, string[] contextTypes)
+        {
+            foreach (var contextType in contextTypes)
+                client.AddHandler(contextType, () => deserializerFactory);
+        }
+
         private ApiResponse<T> Exec<T>(RestRequest req, IReadableConfiguration configuration)
         {
             RestClient client = new RestClient(_baseUrl);
@@ -388,14 +394,14 @@ namespace MeliLibTools.Client
             var existingDeserializer = req.JsonSerializer as IDeserializer;
             if (existingDeserializer != null)
             {
-                client.AddHandler(() => existingDeserializer, "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                AddHandlerHelper(client, existingDeserializer, new string[] { "application/json", "text/json", "text/x-json", "text/javascript", "*+json" });
             }
             else
             {
-                client.AddHandler(() => new CustomJsonCodec(configuration), "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                AddHandlerHelper(client, new CustomJsonCodec(configuration), new string[] { "application/json", "text/json", "text/x-json", "text/javascript", "*+json" });
             }
 
-            client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
+            AddHandlerHelper(client, new XmlDeserializer(), new string[] { "application/xml", "text/xml", "*+xml", "*" });
 
             client.Timeout = configuration.Timeout;
 
@@ -458,14 +464,14 @@ namespace MeliLibTools.Client
             var existingDeserializer = req.JsonSerializer as IDeserializer;
             if (existingDeserializer != null)
             {
-                client.AddHandler(() => existingDeserializer, "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                AddHandlerHelper(client, existingDeserializer, new string[] { "application/json", "text/json", "text/x-json", "text/javascript", "*+json" });
             }
             else
             {
-                client.AddHandler(() => new CustomJsonCodec(configuration), "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                AddHandlerHelper(client, new CustomJsonCodec(configuration), new string[] { "application/json", "text/json", "text/x-json", "text/javascript", "*+json" });
             }
 
-            client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
+            AddHandlerHelper(client, new XmlDeserializer(), new string[] { "application/xml", "text/xml", "*+xml", "*" });
 
             client.Timeout = configuration.Timeout;
 
