@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | **int** |  | 
-**CategoryId** | **int** |  | 
+**Title** | **string** |  | 
+**CategoryId** | **string** |  | 
 **Price** | **int** |  | 
 **CurrencyId** | **string** |  | 
 **AvailableQuantity** | **string** |  | 
@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **Condition** | **string** |  | 
 **Description** | **string** |  | 
 **VideoId** | **string** |  | 
-**Warranty** | **string** |  | 
 **Pictures** | [**List&lt;ItemPictures&gt;**](ItemPictures.md) |  | 
 **Attributes** | [**List&lt;Attributes&gt;**](Attributes.md) |  | [optional] 
 **Variations** | [**List&lt;Variations&gt;**](Variations.md) |  | [optional] 
